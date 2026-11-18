@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>আল মুলহীম | আরবি অভিধান, সরফ ও নাহু</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #047857;
+      --primary-light: #10b981;
+      --primary-dark: #022c22;
+      --gold: #d97706;
+      --gold-light: #fbbf24;
+      --bg: #f0fdf4;
+      --card: #ffffff;
+      --card-alt: #f8fafc;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #d1fae5;
+      --ex-bg: #ecfdf5;
+      --nav-bg: rgba(255, 255, 255, 0.94);
+      --shadow: 0 4px 15px rgba(4, 120, 87, 0.08);
+    }
+
+    body.dark-mode {
+      --bg: #021813;
+      --card: #062c24;
+      --card-alt: #09382e;
+      --text: #f8fafc;
+      --muted: #a7f3d0;
+      --border: #115e59;
+      --ex-bg: #042f2e;
+      --nav-bg: rgba(6, 44, 36, 0.96);
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      transition: background-color 0.3s, color 0.3s;
+      padding-bottom: 90px;
+    }
+
+    .arabic {
+      font-family: 'Amiri', serif;
+      direction: rtl;
+    }
+
+    /* হেডার ডিজাইন */
+    header {
+      background: linear-gradient(135deg, #047857 0%, #065f46 50%, #022c22 100%);
+      color: white;
+      padding: 1rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-box {
+      width: 44px;
+      height: 44px;
+      background: #022c22;
+      border: 2px solid #fbbf24;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Amiri', serif;
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #fef08a;
+      box-shadow: 0 0 12px rgba(251, 191, 36, 0.3);
+    }
+
+    .brand h1 { font-size: 1.3rem; font-weight: 700; color: #fef9c3; letter-spacing: 0.3px; }
+    .brand p { font-size: 0.78rem; color: #a7f3d0; }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      color: #fef9c3;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .icon-btn:active { transform: scale(0.95); }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .view-section { display: none; }
+    .view-section.active { display: block; animation: fadeIn 0.25s ease-out; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .gold-border-card {
+      border: 1px solid rgba(217, 119, 6, 0.45);
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .search-wrapper {
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      background: var(--card-alt);
+      color: var(--text);
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus, select:focus {
+      border-color: var(--gold-light);
+    }
+
+    .chips-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 0.6rem;
+      scrollbar-width: none;
+    }
+    .chips-row::-webkit-scrollbar { display: none; }
+
+    .chip {
+      white-space: nowrap;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--card-alt);
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .chip.active {
+      background: linear-gradient(135deg, #047857, #065f46);
+      color: #fef9c3;
+      border-color: #fbbf24;
+    }
+
+    .dash-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .stat-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.9rem 0.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .stat-box:active { transform: scale(0.97); }
+    .stat-num { font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+    .stat-label { font-size: 0.82rem; font-weight: 600; color: var(--muted); }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .mini-word {
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .mini-word .ar { font-size: 1.35rem; font-weight: 700; color: var(--primary-light); }
+    .mini-word .bn { font-size: 0.82rem; color: var(--muted); }
+
+    .kb-toggle {
+      font-size: 0.82rem;
+      color: var(--gold);
+      background: none;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+
+    .virtual-kb {
+      display: none;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      direction: rtl;
+      background: var(--card-alt);
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+    }
+    .virtual-kb.open { display: flex; }
+
+    .kb-key {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 9px;
+      font-family: 'Amiri', serif;
+      font-size: 1.15rem;
+      cursor: pointer;
+    }
+    .kb-key:active { background: var(--primary); color: white; }
+
+    .word-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+    .word-ar { font-size: 2rem; font-weight: 700; color: var(--primary-light); }
+    .root-badge {
+      background: rgba(217, 119, 6, 0.14);
+      border: 1px solid rgba(217, 119, 6, 0.4);
+      color: var(--gold);
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0;
+      font-size: 0.85rem;
+    }
+    .meta-pill {
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 8px;
+    }
+
+    .example-box {
+      background: var(--ex-bg);
+      border-right: 4px solid var(--gold);
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .ex-ar { font-size: 1.35rem; font-weight: 700; margin-bottom: 3px; }
+    .ex-bn { font-size: 0.9rem; color: var(--muted); }
+
+    .gardan-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .gardan-table th {
+      background: linear-gradient(135deg, #047857, #065f46);
+      color: #fef9c3;
+      padding: 10px 8px;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+    .gardan-table th:nth-child(2) { text-align: center; }
+    .gardan-table th:last-child { text-align: right; }
+
+    .gardan-table td {
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .gardan-table tr:nth-child(even) { background: var(--card-alt); }
+    .gardan-table td.ar-col {
+      text-align: center;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary-light);
+    }
+
+    .accordion-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: var(--card);
+    }
+    .accordion-header {
+      padding: 12px 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-alt);
+      color: var(--primary-light);
+    }
+    .accordion-body {
+      display: none;
+      padding: 12px 15px;
+      border-top: 1px solid var(--border);
+    }
+    .accordion-item.open .accordion-body { display: block; }
+
+    .nahw-timeline {
+      border-right: 3px solid var(--gold);
+      padding-right: 14px;
+      margin-right: 6px;
+    }
+    .amel-card {
+      position: relative;
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .amel-badge {
+      background: var(--gold);
+      color: #022c22;
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 2px 9px;
+      border-radius: 12px;
+    }
+
+    .quiz-option {
+      display: block;
+      width: 100%;
+      text-align: right;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: var(--card-alt);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .quiz-option.correct { background: #047857; color: white; border-color: #10b981; }
+    .quiz-option.wrong { background: #b91c1c; color: white; border-color: #ef4444; }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 4px;
+      z-index: 100;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    .b-nav-item {
+      flex: 1;
+      background: none;
+      border: none;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 0;
+      transition: 0.2s;
+    }
+
+    .b-nav-item .nav-ico { font-size: 1.25rem; }
+    .b-nav-item.active {
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .action-link-btn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 10px;
+      border: 1px solid var(--gold);
+      background: rgba(217, 119, 6, 0.12);
+      color: var(--gold);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+
+  <header>
+    <div class="brand">
+      <div class="logo-box">م</div>
+      <div>
+        <h1>الْمُلْهِم | আল মুলহীম</h1>
+        <p>অভিধান, ইলমুস সরফ ও শত আমেল</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="toggleTheme()" id="themeToggle">☀️ লাইট</button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- হোম / ড্যাশবোর্ড -->
+    <div id="view-home" class="view-section active">
+      <div class="card gold-border-card">
+        <div class="section-title">
+          <span>🔍 স্মার্ট অনুসন্ধান</span>
+          <span style="font-size:0.78rem; color:var(--gold);">সব সেকশন একসাথে</span>
+        </div>
+        <input type="text" id="globalSearchInput" placeholder="শব্দ, মাদ্দাহ, সিগা বা আমেল খুঁজুন (যেমন: رحمة, نصر, إن)..." oninput="runGlobalSearch()">
+        <div id="globalSearchResults" style="margin-top:10px;"></div>
+      </div>
+
+      <div class="dash-stats">
+        <div class="stat-box" onclick="navTo('dict')">
+          <div class="stat-num" id="statDict">১৫+</div>
+          <div class="stat-label">কুরআন-হাদিস শব্দ</div>
+        </div>
+        <div class="stat-box" onclick="navTo('sarf')">
+          <div class="stat-num">৬ বাব</div>
+          <div class="stat-label">পূর্ণাঙ্গ গারদান</div>
+        </div>
+        <div class="stat-box" onclick="navTo('nahw')">
+          <div class="stat-num">১০০</div>
+          <div class="stat-label">মিআতু আমেল</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <span>📖 কুরআন-হাদিস অভিধান</span>
+          <span style="font-size:0.8rem; color:var(--muted);">মাদ্দাহ ও উদাহরণসহ</span>
+        </div>
+        <div class="preview-grid">
+          <div class="mini-word" onclick="quickDictSearch('رحمة')">
+            <div class="ar arabic">رَحْمَةٌ</div>
+            <div class="bn">দয়া, করুণা</div>
+          </div>
+          <div class="mini-word" onclick="quickDictSearch('كتاب')">
+            <div class="ar arabic">كِتَابٌ</div>
+            <div class="bn">বই, গ্রন্থ</div>
+          </div>
+          <div class="mini-word" onclick="quickDictSearch('علم')">
+            <div class="ar arabic">عِلْمٌ</div>
+            <div class="bn">জ্ঞান, বিদ্যা</div>
+          </div>
+        </div>
+        <button class="action-link-btn" onclick="navTo('dict')">সম্পূর্ণ অভিধান ও মাদ্দাহ অনুসন্ধান →</button>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <span>⚙️ ইলমুস সরফ (সিগা ও কায়দা)</span>
+          <span style="font-size:0.8rem; color:var(--muted);">গারদান ও বাব</span>
+        </div>
+        <p style="font-size:0.9rem; color:var(--muted); margin-bottom:8px;">সুলাসী মুজাররাদ ও মাযীদ ফীহের বাব, ১৪ সিগার পূর্ণাঙ্গ রূপান্তর এবং তালীল-ইদগামের কায়দা।</p>
+        <button class="action-link-btn" onclick="navTo('sarf')">গারদান ছক ও কায়দা দেখুন →</button>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <span>📐 ইলমে নাহু (শত আমেল)</span>
+          <span style="font-size:0.8rem; color:var(--muted);">১০০ আমেল</span>
+        </div>
+        <p style="font-size:0.9rem; color:var(--muted); margin-bottom:8px;">হুরুফে জাররাহ, মুশাব্বাহ বিল-ফেলসহ লফযী ও মা'নবী ১০০টি আমেলের উদাহরণসহ বিশ্লেষণ।</p>
+        <button class="action-link-btn" onclick="navTo('nahw')">শত আমেল সূচি দেখুন →</button>
+      </div>
+    </div>
+
+    <!-- অভিধান ভিউ -->
+    <div id="view-dict" class="view-section">
+      <div class="card">
+        <div class="section-title">
+          <span>📖 আরবি-বাংলা অভিধান</span>
+          <span style="font-size:0.82rem; color:var(--gold);" id="dictCounterText">মোট শব্দ: ০</span>
+        </div>
+        
+        <div class="search-wrapper">
+          <input type="text" id="dictInput" placeholder="আরবি শব্দ, বাংলা অর্থ বা মাদ্দাহ লিখুন..." oninput="renderDict()">
+        </div>
+
+        <button class="kb-toggle" onclick="toggleKeyboard()">⌨️ আরবি কীবোর্ড চালু/বন্ধ করুন</button>
+        <div class="virtual-kb" id="arabicKeyboard"></div>
+
+        <div class="chips-row">
+          <button class="chip active" onclick="setDictCat('all', this)">সব শব্দ</button>
+          <button class="chip" onclick="setDictCat('কুরআন', this)">কুরআনিক শব্দ</button>
+          <button class="chip" onclick="setDictCat('হাদিস', this)">হাদিসের শব্দ</button>
+          <button class="chip" onclick="setDictCat('fav', this)">★ সংরক্ষিত (<span id="favCountBadge">0</span>)</button>
+        </div>
+      </div>
+
+      <div id="dictResultsList"></div>
+    </div>
+
+    <!-- ইলমুস সরফ ভিউ -->
+    <div id="view-sarf" class="view-section">
+      <div class="chips-row">
+        <button class="chip active" onclick="switchSarfTab('gardan', this)">📊 সিগা রূপান্তর (গারদান)</button>
+        <button class="chip" onclick="switchSarfTab('babs', this)">📚 বাব পরিচিতি</button>
+        <button class="chip" onclick="switchSarfTab('kayda', this)">📜 সরফের কায়দা</button>
+        <button class="chip" onclick="switchSarfTab('finder', this)">🔎 সিগা নির্ণায়ক</button>
+      </div>
+
+      <div id="sarf-gardan">
+        <div class="card">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+            <div>
+              <label style="font-size:0.82rem; font-weight:600; color:var(--muted);">বাব নির্বাচন:</label>
+              <select id="babSelect" onchange="renderGardanTable()"></select>
+            </div>
+            <div>
+              <label style="font-size:0.82rem; font-weight:600; color:var(--muted);">ফেল / কাল নির্বাচন:</label>
+              <select id="tenseSelect" onchange="renderGardanTable()">
+                <option value="madi">মাদী মারুফ (অতীত)</option>
+                <option value="mudari">মুজারে মারুফ (বর্তমান/ভবিষ্যৎ)</option>
+                <option value="amr">আমর হাযির (আদেশ)</option>
+                <option value="nahi">নাহী হাযির (নিষেধ)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="gardanOutput"></div>
+      </div>
+
+      <div id="sarf-babs" style="display:none;"></div>
+      <div id="sarf-kayda" style="display:none;"></div>
+      
+      <div id="sarf-finder" style="display:none;">
+        <div class="card">
+          <div class="section-title">🔎 সিগা ও আলামত নির্ণায়ক</div>
+          <p style="font-size:0.88rem; color:var(--muted); margin-bottom:10px;">যেকোনো সিগার শেষের বা শুরুর আলামত নিচে লিখুন বা নির্বাচন করুন (যেমন: تُ, وْا, يَ, اُنْ):</p>
+          <input type="text" id="sighaFinderInput" placeholder="সিগা বা আলামত লিখুন (যেমন: نَصَرْتُ বা يَنْصُرُونَ)..." oninput="analyzeSigha()">
+          <div id="sighaAnalysisResult" style="margin-top:12px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ইলমে নাহু ভিউ -->
+    <div id="view-nahw" class="view-section">
+      <div class="card">
+        <div class="section-title">
+          <span>📐 ইলমে নাহু: শত আমেল (مائة عامل)</span>
+        </div>
+        <input type="text" id="nahwInput" placeholder="আমেল, প্রকার বা অর্থ খুঁজুন (যেমন: إِنَّ, যের, হুরুফে জাররাহ)..." oninput="renderNahw()">
+        <div class="chips-row" style="margin-top:10px;" id="nahwFilterChips"></div>
+      </div>
+      <div id="nahwOutput"></div>
+    </div>
+
+    <!-- কুইজ ভিউ -->
+    <div id="view-quiz" class="view-section">
+      <div class="card gold-border-card">
+        <div class="section-title">
+          <span>🎯 মেধা যাচাই কুইজ</span>
+          <span class="root-badge" id="quizScoreBadge">স্কোর: ০ / ০</span>
+        </div>
+        <p style="font-size:0.88rem; color:var(--muted); margin-bottom:12px;">অভিধান, সরফের সিগা এবং নাহুর আমেল থেকে আপনার জ্ঞান যাচাই করুন।</p>
+        <div id="quizContainer"></div>
+        <button class="action-link-btn" onclick="nextQuiz()" style="margin-top:12px;">পরবর্তী প্রশ্ন →</button>
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="bottom-nav">
+    <button class="b-nav-item active" onclick="navTo('home', this)">
+      <span class="nav-ico">🏠</span>
+      <span>হোম</span>
+    </button>
+    <button class="b-nav-item" onclick="navTo('dict', this)">
+      <span class="nav-ico">📖</span>
+      <span>অভিধান</span>
+    </button>
+    <button class="b-nav-item" onclick="navTo('sarf', this)">
+      <span class="nav-ico">⚙️</span>
+      <span>সরফ</span>
+    </button>
+    <button class="b-nav-item" onclick="navTo('nahw', this)">
+      <span class="nav-ico">📐</span>
+      <span>নাহু</span>
+    </button>
+    <button class="b-nav-item" onclick="navTo('quiz', this)">
+      <span class="nav-ico">🎯</span>
+      <span>কুইজ</span>
+    </button>
+  </nav>
+
+  <script>
+    const dictionaryData = [
+      { id: 1, cat: "কুরআন", ar: "رَحْمَةٌ", plain: "رحمة", root: "ر ح م", plural: "رَحَمَاتٌ", bn: "দয়া, অনুগ্রহ, করুণা, আশীর্বাদ", type: "বিশেষ্য (اسم)", ex_ar: "وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ", ex_bn: "আর আমার রহমত সবকিছুকে পরিব্যাপ্ত করে আছে। (সূরা আ'রাফ: ১৫৬)" },
+      { id: 2, cat: "কুরআন", ar: "كِتَابٌ", plain: "كتاب", root: "ك ت ب", plural: "كُتُبٌ", bn: "বই, গ্রন্থ, লিখিত বিধান, কুরআন", type: "বিশেষ্য (اسم)", ex_ar: "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ", ex_bn: "এটি সেই কিতাব, যাতে কোনো সন্দেহ নেই। (সূরা বাকারা: ২)" },
+      { id: 3, cat: "কুরআন", ar: "عِلْمٌ", plain: "علم", root: "ع ل م", plural: "عُلُومٌ", bn: "জ্ঞান, বিদ্যা, প্রজ্ঞা, অবগতি", type: "মাসদার (مصدر)", ex_ar: "وَقُل رَّبِّ زِدْنِي عِلْمًا", ex_bn: "এবং বলুন, হে আমার রব! আমার জ্ঞান বৃদ্ধি করে দিন। (সূরা ত্বহা: ১১৪)" },
+      { id: 4, cat: "কুরআন", ar: "هِدَايَةٌ", plain: "هداية", root: "هـ د ي", plural: "-", bn: "সঠিক পথনির্দেশ, সুপথ প্রাপ্তি", type: "মাসদার (مصدر)", ex_ar: "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ", ex_bn: "আমাদেরকে সরল-সঠিক পথ দেখান। (সূরা ফাতিহা: ৬)" },
+      { id: 5, cat: "কুরআন", ar: "تَقْوَى", plain: "تقوى", root: "و ق ي", plural: "-", bn: "আল্লাহভীতি, পরহেজগারি, আত্মরক্ষা", type: "বিশেষ্য (اسم)", ex_ar: "وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ", ex_bn: "তোমরা পাথেয় সংগ্রহ করো, নিশ্চয় সর্বোত্তম পাথেয় হলো তাকওয়া। (সূরা বাকারা: ১৯৭)" },
+      { id: 6, cat: "হাদিস", ar: "نِيَّةٌ", plain: "نية", root: "ن و ي", plural: "نِيَّاتٌ", bn: "সংকল্প, উদ্দেশ্য, ইচ্ছা, অভিপ্রায়", type: "বিশেষ্য (اسم)", ex_ar: "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ", ex_bn: "নিশ্চয় সকল আমল নিয়তের ওপর নির্ভরশীল। (সহীহ বুখারী: ১)" },
+      { id: 7, cat: "কুরআন", ar: "مَغْفِرَةٌ", plain: "مغفرة", root: "غ ف ر", plural: "-", bn: "ক্ষমা, মার্জনা, পাপ মোচন", type: "বিশেষ্য (اسم)", ex_ar: "وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِّن رَّبِّكُمْ", ex_bn: "তোমরা তোমাদের রবের ক্ষমার দিকে দ্রুত ধাবিত হও। (সূরা আলে ইমরান: ১৩৩)" },
+      { id: 8, cat: "কুরআন", ar: "صَبْرٌ", plain: "صبر", root: "ص ب ر", plural: "-", bn: "ধৈর্য, সহিষ্ণুতা, অবিচলতা", type: "মাসদার (مصدر)", ex_ar: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ", ex_bn: "নিশ্চয় আল্লাহ ধৈর্যশীলদের সাথে আছেন। (সূরা বাকারা: ১৫৩)" },
+      { id: 9, cat: "হাদিস", ar: "حَلَالٌ", plain: "حلال", root: "ح ل ل", plural: "-", bn: "বৈধ, অনুমোদিত, হালাল", type: "বিশেষণ (صفة)", ex_ar: "إِنَّ الْحَلَالَ بَيِّنٌ وَإِنَّ الْحَرَامَ بَيِّنٌ", ex_bn: "নিশ্চয় হালাল সুস্পষ্ট এবং হারামও সুস্পষ্ট। (সহীহ মুসলিম)" },
+      { id: 10, cat: "কুরআন", ar: "خَلَقَ", plain: "خلق", root: "خ ل ق", plural: "-", bn: "তিনি সৃষ্টি করেছেন, তৈরি করলেন", type: "ক্রিয়া (فعل ماضٍ)", ex_ar: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ", ex_bn: "পাঠ করুন আপনার রবের নামে, যিনি সৃষ্টি করেছেন। (সূরা আলাক: ১)" },
+      { id: 11, cat: "কুরআন", ar: "رِزْقٌ", plain: "رزق", root: "ر ز ق", plural: "أَرْزَاقٌ", bn: "জীবিকা, খাদ্য, অনুদান, সম্পদ", type: "বিশেষ্য (اسم)", ex_ar: "وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا", ex_bn: "ভূপৃষ্ঠে বিচরণশীল এমন কোনো প্রাণী নেই যার রিযিকের দায়িত্ব আল্লাহর ওপর নয়। (সূরা হুদ: ৬)" },
+      { id: 12, cat: "হাদিস", ar: "أَمَانَةٌ", plain: "أمانة", root: "أ م ن", plural: "أَمَانَاتٌ", bn: "গচ্ছিত সম্পদ, বিশ্বস্ততা, দায়িত্ব", type: "বিশেষ্য (اسم)", ex_ar: "أَدِّ الْأَمَانَةَ إِلَى مَنِ ائْتَمَنَكَ", ex_bn: "যে তোমার কাছে আমানত রেখেছে, তার আমানত যথাযথভাবে ফিরিয়ে দাও। (আবু দাউদ)" },
+      { id: 13, cat: "কুরআন", ar: "نُورٌ", plain: "নور", root: "ن و ر", plural: "أَنْوَارٌ", bn: "আলো, জ্যোতি, হেদায়েতের প্রভা", type: "বিশেষ্য (اسم)", ex_ar: "اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ", ex_bn: "আল্লাহ আসমানসমূহ ও জমিনের নূর (জ্যোতি)। (সূরা নূর: ৩৫)" },
+      { id: 14, cat: "হাদিস", ar: "بَرَكَةٌ", plain: "بركة", root: "b r k", plural: "بَرَكَاتٌ", bn: "কল্যাণ, প্রাচুর্য, প্রবৃদ্ধি", type: "বিশেষ্য (اسم)", ex_ar: "الْبَرَكَةُ مَعَ أَكَابِرِكُمْ", ex_bn: "তোমাদের বড়দের (বয়োজ্যেষ্ঠদের) সাথেই বরকত রয়েছে। (ইবনে হিব্বান)" },
+      { id: 15, cat: "কুরআন", ar: "شُكْرٌ", plain: "شكر", root: "ش ك ر", plural: "-", bn: "কৃতজ্ঞতা, ধন্যবাদ জ্ঞাপন", type: "মাসদার (مصدر)", ex_ar: "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ", ex_bn: "যদি তোমরা কৃতজ্ঞতা আদায় করো, তবে আমি অবশ্যই তোমাদের বাড়িয়ে দেব। (সূরা ইবরাহীম: ৭)" }
+    ];
+
+    const sarfBabsData = [
+      {
+        id: "nasara",
+        name: "১. বাব নাসারা (نَصَرَ - يَنْصُرُ)",
+        meaning: "সাহায্য করা",
+        sign: "মাদীতে আইন কালিমায় যবর এবং মুজারেতে পেশ।",
+        examples: "كَتَبَ - يَكْتُبُ (লেখা), خَلَقَ - يَخْلُقُ (সৃষ্টি করা)",
+        madi: [
+          ["ওয়াহিদ মুযাক্কার গায়েব", "نَصَرَ", "সে একজন পুরুষ সাহায্য করল"],
+          ["তাসনিয়া মুযাক্কার গায়েব", "نَصَرَا", "তারা দু'জন পুরুষ সাহায্য করল"],
+          ["জমা মুযাক্কার গায়েব", "نَصَرُوا", "তারা সকল পুরুষ সাহায্য করল"],
+          ["ওয়াহিদ মুয়ান্নাস গায়েব", "نَصَرَتْ", "সে একজন নারী সাহায্য করল"],
+          ["তাসনিয়া মুয়ান্নাস গায়েব", "نَصَرَتَا", "তারা দু'জন নারী সাহায্য করল"],
+          ["জমা মুয়ান্নাস গায়েব", "نَصَرْنَ", "তারা সকল নারী সাহায্য করল"],
+          ["ওয়াহিদ মুযাক্কার হাযির", "نَصَرْتَ", "তুমি একজন পুরুষ সাহায্য করলে"],
+          ["তাসনিয়া মুযাক্কার হাযির", "نَصَرْتُمَا", "তোমরা দু'জন পুরুষ সাহায্য করলে"],
+          ["জমা মুযাক্কার হাযির", "نَصَرْتُمْ", "তোমরা সকল পুরুষ সাহায্য করলে"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "نَصَرْتِ", "তুমি একজন নারী সাহায্য করলে"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "نَصَرْتُمَا", "তোমরা দু'জন নারী সাহায্য করলে"],
+          ["জমা মুয়ান্নাস হাযির", "نَصَرْتُنَّ", "তোমরা সকল নারী সাহায্য করলে"],
+          ["ওয়াহিদ মুতাকাল্লিম", "نَصَرْتُ", "আমি সাহায্য করলাম"],
+          ["জমা মুতাকাল্লিম", "نَصَرْنَا", "আমরা সাহায্য করলাম"]
+        ],
+        mudari: [
+          ["ওয়াহিদ মুযাক্কার গায়েব", "يَنْصُرُ", "সে সাহায্য করে/করবে"],
+          ["তাসনিয়া মুযাক্কার গায়েব", "يَنْصُرَانِ", "তারা দু'জন সাহায্য করে/করবে"],
+          ["জমা মুযাক্কার গায়েব", "يَنْصُرُونَ", "তারা সকল পুরুষ সাহায্য করে"],
+          ["ওয়াহিদ মুয়ান্নাস গায়েব", "تَنْصُرُ", "সে নারী সাহায্য করে"],
+          ["তাসনিয়া মুয়ান্নাস গায়েব", "تَنْصُرَانِ", "তারা দু'জন নারী সাহায্য করে"],
+          ["জমা মুয়ান্নাস গায়েব", "يَنْصُرْنَ", "তারা সকল নারী সাহায্য করে"],
+          ["ওয়াহিদ মুযাক্কার হাযির", "تَنْصُرُ", "তুমি সাহায্য করো"],
+          ["তাসনিয়া মুযাক্কার হাযির", "تَنْصُرَانِ", "তোমরা দু'জন সাহায্য করো"],
+          ["জমা মুযাক্কার হাযির", "تَنْصُرُونَ", "তোমরা সকল পুরুষ সাহায্য করো"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "تَنْصُرِينَ", "তুমি নারী সাহায্য করো"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "تَنْصُرَانِ", "তোমরা দু'জন নারী সাহায্য করো"],
+          ["জমা মুয়ান্নাস হাযির", "تَنْصُرْنَ", "তোমরা সকল নারী সাহায্য করো"],
+          ["ওয়াহিদ মুতাকাল্লিম", "أَنْصُرُ", "আমি সাহায্য করি"],
+          ["জমা মুতাকাল্লিম", "نَنْصُرُ", "আমরা সাহায্য করি"]
+        ],
+        amr: [
+          ["ওয়াহিদ মুযাক্কার হাযির", "اُنْصُرْ", "তুমি সাহায্য করো"],
+          ["তাসনিয়া মুযাক্কার হাযির", "اُنْصُرَا", "তোমরা দু'জন সাহায্য করো"],
+          ["জমা মুযাক্কার হাযির", "اُنْصُرُوا", "তোমরা সকল পুরুষ সাহায্য করো"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "اُنْصُرِي", "তুমি নারী সাহায্য করো"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "اُنْصُرَا", "তোমরা দু'জন নারী সাহায্য করো"],
+          ["জমা মুয়ান্নাস হাযির", "اُنْصُرْنَ", "তোমরা সকল নারী সাহায্য করো"]
+        ],
+        nahi: [
+          ["ওয়াহিদ মুযাক্কার হাযির", "لَا تَنْصُرْ", "সাহায্য করো না"],
+          ["তাসনিয়া মুযাক্কার হাযির", "لَا تَنْصُرَا", "তোমরা দু'জন সাহায্য করো না"],
+          ["জমা মুযাক্কার হাযির", "لَا تَنْصُرُوا", "তোমরা সকল পুরুষ সাহায্য করো না"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "لَا تَنْصُرِي", "তুমি নারী সাহায্য করো না"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "لَا تَنْصُرَا", "তোমরা দু'জন নারী সাহায্য করো না"],
+          ["জমা মুয়ান্নাস হাযির", "لَا تَنْصُرْنَ", "তোমরা সকল নারী সাহায্য করো না"]
+        ]
+      },
+      {
+        id: "daraba",
+        name: "২. বাব দারাবা (ضَرَبَ - يَضْرِبُ)",
+        meaning: "প্রহার করা / বর্ণনা করা",
+        sign: "মাদীতে যবর এবং মুজারেতে যের।",
+        examples: "جَلَسَ - يَجْلِسُ (বসা), غَفَرَ - يَغْفِرُ (ক্ষমা করা)",
+        madi: [
+          ["ওয়াহিদ মুযাক্কার গায়েব", "ضَرَبَ", "সে প্রহার করল"],
+          ["তাসনিয়া মুযাক্কার গায়েব", "ضَرَبَا", "তারা দু'জন প্রহার করল"],
+          ["জমা মুযাক্কার গায়েব", "ضَرَبُوا", "তারা প্রহার করল"],
+          ["ওয়াহিদ মুয়ান্নাস গায়েব", "ضَرَبَتْ", "সে নারী প্রহার করল"],
+          ["তাসনিয়া মুয়ান্নাস গায়েব", "ضَرَبَتَا", "তারা দু'জন নারী প্রহার করল"],
+          ["জমা মুয়ান্নাস গায়েব", "ضَرَبْنَ", "তারা সকল নারী প্রহার করল"],
+          ["ওয়াহিদ মুযাক্কার হাযির", "ضَرَبْتَ", "তুমি প্রহার করলে"],
+          ["তাসনিয়া মুযাক্কার হাযির", "ضَرَبْتُمَا", "তোমরা দু'জন প্রহার করলে"],
+          ["জমা মুযাক্কার হাযির", "ضَرَبْتُمْ", "তোমরা সকল পুরুষ প্রহার করলে"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "ضَرَبْتِ", "তুমি নারী প্রহার করলে"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "ضَرَبْتُمَا", "তোমরা দু'জন নারী প্রহার করলে"],
+          ["জমা মুয়ান্নাস হাযির", "ضَرَبْتُنَّ", "তোমরা সকল নারী প্রহার করলে"],
+          ["ওয়াহিদ মুতাকাল্লিম", "ضَرَبْتُ", "আমি প্রহার করলাম"],
+          ["জমা মুতাকাল্লিম", "ضَرَبْنَا", "আমরা প্রহার করলাম"]
+        ],
+        mudari: [
+          ["ওয়াহিদ মুযাক্কার গায়েব", "يَضْرِبُ", "সে প্রহার করে"],
+          ["তাসনিয়া মুযাক্কার গায়েব", "يَضْرِبَانِ", "তারা দু'জন প্রহার করে"],
+          ["জমা মুযাক্কার গায়েব", "يَضْرِبُونَ", "তারা প্রহার করে"],
+          ["ওয়াহিদ মুয়ান্নাস গায়েব", "تَضْرِبُ", "সে নারী প্রহার করে"],
+          ["তাসনিয়া মুয়ান্নাস গায়েব", "تَضْرِبَانِ", "তারা দু'জন নারী প্রহার করে"],
+          ["জমা মুয়ান্নাস গায়েব", "يَضْرِبْنَ", "তারা সকল নারী প্রহার করে"],
+          ["ওয়াহিদ মুযাক্কার হাযির", "تَضْرِبُ", "তুমি প্রহার করো"],
+          ["তাসনিয়া মুযাক্কার হাযির", "تَضْرِبَانِ", "তোমরা দু'জন প্রহার করো"],
+          ["জমা মুযাক্কার হাযির", "تَضْرِبُونَ", "তোমরা সকল পুরুষ প্রহার করো"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "تَضْرِبِينَ", "তুমি নারী প্রহার করো"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "تَضْرِبَانِ", "তোমরা দু'জন নারী প্রহার করো"],
+          ["জমা মুয়ান্নাস হাযির", "تَضْرِبْنَ", "তোমরা সকল নারী প্রহার করো"],
+          ["ওয়াহিদ মুতাকাল্লিম", "أَضْرِبُ", "আমি প্রহার করি"],
+          ["জমা মুতাকাল্লিম", "نَضْرِبُ", "আমরা প্রহার করি"]
+        ],
+        amr: [
+          ["ওয়াহিদ মুযাক্কার হাযির", "اِضْرِبْ", "প্রহার করো"],
+          ["তাসনিয়া মুযাক্কার হাযির", "اِضْرِبَا", "তোমরা দু'জন প্রহার করো"],
+          ["জমা মুযাক্কার হাযির", "اِضْرِبُوا", "তোমরা প্রহার করো"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "اِضْرِبِي", "তুমি নারী প্রহার করো"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "اِضْرِبَا", "তোমরা দু'জন নারী প্রহার করো"],
+          ["জমা মুয়ান্নাস হাযির", "اِضْرِبْنَ", "তোমরা সকল নারী প্রহার করো"]
+        ],
+        nahi: [
+          ["ওয়াহিদ মুযাক্কার হাযির", "لَا تَضْرِبْ", "প্রহার করো না"],
+          ["তাসনিয়া মুযাক্কার হাযির", "لَا تَضْرِبَا", "তোমরা দু'জন প্রহার করো না"],
+          ["জমা মুযাক্কার হাযির", "لَا تَضْرِبُوا", "তোমরা প্রহার করো না"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "لَا تَضْرِبِي", "তুমি নারী প্রহার করো না"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "لَا تَضْرِبَا", "তোমরা দু'জন নারী প্রহার করো না"],
+          ["জমা মুয়ান্নাস হাযির", "لَا تَضْرِبْنَ", "তোমরা সকল নারী প্রহার করো না"]
+        ]
+      },
+      {
+        id: "fataha",
+        name: "৩. বাব ফাতাহা (فَتَحَ - يَفْتَحُ)",
+        meaning: "খোলা / বিজয় দান করা",
+        sign: "মাদী ও মুজারে উভয় কালে যবর।",
+        examples: "ذَهَبَ - يَذْهَبُ (যাওয়া), جَعَلَ - يَجْعَلُ (বানানো)",
+        madi: [
+          ["ওয়াহিদ মুযাক্কার গায়েব", "فَتَحَ", "সে খুলল"],
+          ["তাসনিয়া মুযাক্কার গায়েব", "فَتَحَا", "তারা দু'জন খুলল"],
+          ["জমা মুযাক্কার গায়েব", "فَتَحُوا", "তারা খুলল"],
+          ["ওয়াহিদ মুয়ান্নাস গায়েব", "فَتَحَتْ", "সে নারী খুলল"],
+          ["তাসনিয়া মুয়ান্নাস গায়েব", "فَتَحَتَا", "তারা দু'জন নারী খুলল"],
+          ["জমা মুয়ান্নাস গায়েব", "فَتَحْنَ", "তারা সকল নারী খুলল"],
+          ["ওয়াহিদ মুযাক্কার হাযির", "فَتَحْتَ", "তুমি খুললে"],
+          ["তাসনিয়া মুযাক্কার হাযির", "فَتَحْتُمَا", "তোমরা দু'জন খুললে"],
+          ["জমা মুযাক্কার হাযির", "فَتَحْتُمْ", "তোমরা সকল পুরুষ খুললে"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "فَتَحْتِ", "তুমি নারী খুললে"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "فَتَحْتُمَا", "তোমরা দু'জন নারী খুললে"],
+          ["জমা মুয়ান্নাস হাযির", "فَتَحْتُنَّ", "তোমরা সকল নারী খুললে"],
+          ["ওয়াহিদ মুতাকাল্লিম", "فَتَحْتُ", "আমি খুললাম"],
+          ["জমা মুতাকাল্লিম", "فَتَحْنَا", "আমরা খুললাম"]
+        ],
+        mudari: [
+          ["ওয়াহিদ মুযাক্কার গায়েব", "يَفْتَحُ", "সে খোলে"],
+          ["তাসনিয়া মুযাক্কার গায়েব", "يَفْتَحَانِ", "তারা দু'জন খোলে"],
+          ["জমা মুযাক্কার গায়েব", "يَفْتَحُونَ", "তারা খোলে"],
+          ["ওয়াহিদ মুয়ান্নাস গায়েব", "تَفْتَحُ", "সে নারী খোলে"],
+          ["তাসনিয়া মুয়ান্নাস গায়েব", "تَفْتَحَانِ", "তারা দু'জন নারী খোলে"],
+          ["জমা মুয়ান্নাস গায়েব", "يَفْتَحْنَ", "তারা সকল নারী খোলে"],
+          ["ওয়াহিদ মুযাক্কার হাযির", "تَفْتَحُ", "তুমি খোলো"],
+          ["তাসনিয়া মুযাক্কার হাযির", "تَفْتَحَانِ", "তোমরা দু'জন খোলো"],
+          ["জমা মুযাক্কার হাযির", "تَفْتَحُونَ", "তোমরা পুরুষ খোলো"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "تَفْتَحِينَ", "তুমি নারী খোলো"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "تَفْتَحَانِ", "তোমরা দু'জন নারী খোলো"],
+          ["জমা মুয়ান্নাস হাযির", "تَفْتَحْنَ", "তোমরা সকল নারী খোলো"],
+          ["ওয়াহিদ মুতাকাল্লিম", "أَفْتَحُ", "আমি খুলি"],
+          ["জমা মুতাকাল্লিম", "نَفْتَحُ", "আমরা খুলি"]
+        ],
+        amr: [
+          ["ওয়াহিদ মুযাক্কার হাযির", "اِفْتَحْ", "খোলো"],
+          ["তাসনিয়া মুযাক্কার হাযির", "اِفْتَحَا", "তোমরা দু'জন খোলো"],
+          ["জমা মুযাক্কার হাযির", "اِفْتَحُوا", "তোমরা খোলো"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "اِفْتَحِي", "তুমি নারী খোলো"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "اِفْتَحَا", "তোমরা দু'জন নারী খোলো"],
+          ["জমা মুয়ান্নাস হাযির", "اِفْتَحْنَ", "তোমরা সকল নারী খোলো"]
+        ],
+        nahi: [
+          ["ওয়াহিদ মুযাক্কার হাযির", "لَا تَفْتَحْ", "খোলো না"],
+          ["তাসনিয়া মুযাক্কার হাযির", "لَا تَفْتَحَا", "তোমরা দু'জন খোলো না"],
+          ["জমা মুযাক্কার হাযির", "لَا تَفْتَحُوا", "তোমরা খোলো না"],
+          ["ওয়াহিদ মুয়ান্নাস হাযির", "لَا تَفْتَحِي", "তুমি নারী খোলো না"],
+          ["তাসনিয়া মুয়ান্নাস হাযির", "لَا تَفْتَحَا", "তোমরা দু'জন নারী খোলো না"],
+          ["জমা মুয়ান্নাস হাযির", "لَا تَفْتَحْنَ", "তোমরা সকল নারী খোলো না"]
+        ]
+      }
+    ];
+
+    const extraBabsInfo = [
+      { title: "৪. বাব সামিআ (سَمِعَ - يَسْمَعُ)", desc: "মাদীতে যের এবং মুজারেতে যবর। উদাহরণ: عَلِمَ - يَعْلَمُ (জানা), عَمِلَ - يَعْمَلُ (আমল করা)।" },
+      { title: "৫. বাব কারুমা (كَرُمَ - يَكْرُمُ)", desc: "উভয় কালে পেশ। সর্বদা লাযিম (অকর্মক) হয়। উদাহরণ: حَسُنَ (সুন্দর হওয়া)।" },
+      { title: "৬. বাব হাসিবা (حَسِبَ - يَحْسِبُ)", desc: "উভয় কালে যের। উদাহরণ: وَرِثَ - يَرِثُ (উত্তরাধিকারী হওয়া)।" },
+      { title: "৭. বাব ইফআল (أَفْعَلَ - يُفْعِلُ) [মাযীদ ফীহ]", desc: "শুরুতে অতিরিক্ত হামযা। উদাহরণ: أَنْزَلَ - يُنْزِلُ (নাযিল করা)।" },
+      { title: "৮. বাব তাফঈল (فَعَّلَ - يُفَعِّلُ) [মাযীদ ফীহ]", desc: "আইন কালিমায় তাশদীদ। উদাহরণ: عَلَّمَ - يُعَلِّمُ (শিক্ষা দেওয়া)।" },
+      { title: "৯. বাব ইসতিফআল (اِسْتَفْعَلَ - يَسْتَفْعِلُ) [মাযীদ ফীহ]", desc: "চাওয়া অর্থ দেয়। উদাহরণ: اِسْتَغْفَرَ - يَسْتَغْفِرُ (ক্ষমা প্রার্থনা করা)।" }
+    ];
+
+    const sarfKaydas = [
+      {
+        title: "১. হাফত আকসাম (৭ প্রকার ক্রিয়া)",
+        body: "মূল অক্ষরের বিচারে ক্রিয়া ৭ প্রকার: ছহীহ, মাহমুয, মুজাআফ, মিসাল, আজওয়াফ, নাকিছ ও লাফীফ।"
+      },
+      {
+        title: "২. তালীলের কায়দা",
+        body: "و বা ي হরকতযুক্ত হয়ে পূর্ববর্তী অক্ষরে যবর থাকলে তা আলিফ (ا) দ্বারা পরিবর্তিত হয় (যেমন: قَالَ)।"
+      },
+      {
+        title: "৩. ইদগামের কায়দা",
+        body: "একই জাতীয় দুটি অক্ষর পাশাপাশি বসলে প্রথমটি সাকিন এবং দ্বিতীয়টি হরকতযুক্ত হলে মিলিয়ে তাশদীদ দিয়ে পড়া হয়।"
+      },
+      {
+        title: "৪. ফে'লে আমর গঠনের নিয়ম",
+        body: "মুজারে হাযির থেকে তা (ت) ফেলে দিয়ে শুরুতে হামযায়ে ওয়াসল আনতে হয়।"
+      }
+    ];
+
+    const nahwCategories = [
+      {
+        id: "jar",
+        short: "হুরুফে জাররাহ (১৭)",
+        title: "১ম প্রকার: হুরুফে জাররাহ (১৭টি)",
+        rule: "এই ১৭টি হরফ ইসমের শেষে যের (جر) প্রদান করে।",
+        items: [
+          { no: "১", amel: "بِـ", bn: "দ্বারা, সাথে", ex_ar: "بِسْمِ اللَّهِ", ex_bn: "আল্লাহর নামে" },
+          { no: "২", amel: "مِنْ", bn: "হতে, থেকে", ex_ar: "مِنَ الْمَسْجِدِ", ex_bn: "মসজিদ হতে" },
+          { no: "৩", amel: "إِلَى", bn: "দিকে", ex_ar: "إِلَى اللَّهِ", ex_bn: "আল্লাহর দিকে" },
+          { no: "৪", amel: "عَنْ", bn: "সম্পর্কে", ex_ar: "عَنِ النَّبِيِّ", ex_bn: "নবী সাল্লাল্লাহু আলাইহি ওয়া সাল্লাম থেকে" },
+          { no: "৫", amel: "عَلَى", bn: "উপরে", ex_ar: "عَلَى كُلِّ شَيْءٍ", ex_bn: "সবকিছুর ওপর" },
+          { no: "৬", amel: "فِي", bn: "মধ্যে", ex_ar: "فِي الْقَلْبِ", ex_bn: "অন্তরের মধ্যে" },
+          { no: "৭-১৭", amel: "كَـ / لِـ / رُبَّ / حَتَّى ইত্যাদি", bn: "মতো, জন্য, শপথ অর্থে", ex_ar: "حَتَّىٰ مَطْلَعِ الْفَجْرِ", ex_bn: "ফজর উদয় হওয়া পর্যন্ত" }
+        ]
+      },
+      {
+        id: "mushabbah",
+        short: "মুশাব্বাহ বিল-ফেল (৬)",
+        title: "২য় প্রকার: হুরুফে মুশাব্বাহ বিল-ফেল (৬টি)",
+        rule: "ইসমকে যবর এবং খবরকে পেশ দেয়।",
+        items: [
+          { no: "১৮", amel: "إِنَّ", bn: "নিশ্চয়", ex_ar: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ", ex_bn: "নিশ্চয় আল্লাহ ধৈর্যশীলদের সাথে আছেন" },
+          { no: "১৯", amel: "أَنَّ", bn: "যে, নিশ্চয়", ex_ar: "أشهد أن محمدا رسول الله", ex_bn: "আমি সাক্ষ্য দিচ্ছি যে মুহাম্মদ আল্লাহর রাসূল" },
+          { no: "২০-২৩", amel: "كَأَنَّ / لَكِنَّ / لَيْتَ / لَعَلَّ", bn: "যেন, কিন্তু, হায়, সম্ভবত", ex_ar: "لَعَلَّكُمْ تَتَّقُونَ", ex_bn: "যাতে তোমরা তাকওয়া অর্জন করতে পারো" }
+        ]
+      },
+      {
+        id: "nasib",
+        short: "নসব দানকারী",
+        title: "৩য়-৫ম প্রকার: নসব দানকারী হরফ",
+        rule: "ফে'লে মুজারের শেষে যবর দেয়।",
+        items: [
+          { no: "২৪-৩৬", amel: "أَنْ / لَنْ / كَيْ / إِذَنْ", bn: "মুজারে-কে যবর দানকারী হরফ", ex_ar: "لَن تَنَالُوا الْبِرَّ", ex_bn: "তোমরা কখনোই পুণ্য লাভ করতে পারবে না" }
+        ]
+      },
+      {
+        id: "jazim",
+        short: "জযম দানকারী",
+        title: "৬ষ্ঠ-৭ম প্রকার: জযম দানকারী আমেল",
+        rule: "ফে'লে মুজারে-কে সাকিন বা জযম দেয়।",
+        items: [
+          { no: "৩৭-৫০", amel: "لَمْ / لَمَّا / لَا / إِنْ / مَنْ", bn: "ফেলকে জযম প্রদানকারী হরফ ও ইসম", ex_ar: "لَمْ يَلِدْ وَلَمْ يُولَدْ", ex_bn: "তিনি কাউকে জন্ম দেননি" }
+        ]
+      },
+      {
+        id: "manawi",
+        short: "আমেলে মা'নবী (২)",
+        title: "১৪শ প্রকার: আমেলে মা'নবী (العامل المعنوي)",
+        rule: "অর্থগত কারণে পেশ (রফ) প্রদান করে।",
+        items: [
+          { no: "৯৯", amel: "اَلْاِبْتِدَاءُ", bn: "ইবতিদা (মুবতাদা ও খবরকে পেশ)", ex_ar: "اللَّهُ أَكْبَرُ", ex_bn: "আল্লাহ সর্বশ্রেষ্ঠ" },
+          { no: "১০০", amel: "اَلتَّجَرُّدُ", bn: "তাজাররুদ (নাসিব-জাযিম মুক্ত হওয়া)", ex_ar: "يَنْصُرُ زَيْدٌ", ex_bn: "জায়েদ সাহায্য করে" }
+        ]
+      }
+    ];
+
+    const quizQuestions = [
+      { q: "‘رَحْمَةٌ’ শব্দের মাদ্দাহ কী?", opts: ["ر ح م", "ح م د", "ر ح ل", "م ر ح"], ans: 0 },
+      { q: "‘نَصَرُوا’ কোন সিগা?", opts: ["ওয়াহিদ মুযাক্কার গায়েব", "জমা মুযাক্কার গায়েব", "জমা মুযাক্কার হাযির", "জমা মুতাকাল্লিম"], ans: 1 },
+      { q: "হুরুফে জাররাহ ইসমের শেষে কী হরকত দেয়?", opts: ["পেশ", "যবর", "যের", "সাকিন"], ans: 2 },
+      { q: "‘إِنَّ’ বাক্যে প্রবেশ করে কী আমল করে?", opts: ["ইসমকে পেশ ও খবরকে যবর দেয়", "ইসমকে যবর ও খবরকে পেশ দেয়", "উভয়কে যের দেয়", "পরিবর্তন করে না"], ans: 1 },
+      { q: "‘لَمْ يَلِدْ’ — এখানে ‘لَمْ’ কী ধরনের আমেল?", opts: ["নসব দানকারী", "জযম দানকারী", "যের দানকারী", "হুরুফে মুশাব্বাহ"], ans: 1 }
+    ];
+
+    let favorites = JSON.parse(localStorage.getItem('almulhim_favs')) || [];
+    let currentDictCat = 'all';
+    let currentNahwCat = 'all';
+    let qIndex = 0, qScore = 0, qTotal = 0, qAnswered = false;
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      document.getElementById('themeToggle').textContent = isDark ? '☀️ লাইট' : '🌙 ডার্ক';
+    }
+
+    function navTo(viewName, btnEl) {
+      document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+      document.getElementById('view-' + viewName).classList.add('active');
+
+      document.querySelectorAll('.b-nav-item').forEach(b => b.classList.remove('active'));
+      if (btnEl) {
+        btnEl.classList.add('active');
+      } else {
+        const map = { home: 0, dict: 1, sarf: 2, nahw: 3, quiz: 4 };
+        document.querySelectorAll('.b-nav-item')[map[viewName]].classList.add('active');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function runGlobalSearch() {
+      const q = document.getElementById('globalSearchInput').value.trim().toLowerCase();
+      const box = document.getElementById('globalSearchResults');
+      if (!q) { box.innerHTML = ''; return; }
+
+      let results = [];
+      dictionaryData.forEach(w => {
+        if (w.ar.includes(q) || w.plain.includes(q) || w.bn.includes(q) || w.root.includes(q)) {
+          results.push(`<div class="amel-card" onclick="quickDictSearch('${w.plain}')" style="cursor:pointer;">
+            <span class="root-badge">অভিধান</span> <strong class="arabic" style="font-size:1.3rem; margin:0 6px;">${w.ar}</strong> — ${w.bn}
+          </div>`);
+        }
+      });
+
+      box.innerHTML = results.length ? results.slice(0, 4).join('') : `<p style="font-size:0.88rem; color:var(--muted);">কোনো ফলাফল পাওয়া যায়নি।</p>`;
+    }
+
+    function quickDictSearch(word) {
+      navTo('dict');
+      document.getElementById('dictInput').value = word;
+      renderDict();
+    }
+
+    function toggleKeyboard() {
+      document.getElementById('arabicKeyboard').classList.toggle('open');
+    }
+
+    function buildKeyboard() {
+      const chars = ['ا','ب','ت','ث','ج','ح','خ','د','ذ','ر','ز','س','ش','ص','ض','ط','ظ','ع','غ','ف','ق','ك','ل','م','ن','ه','و','ي','ة','أ','إ','ؤ','ئ'];
+      const kb = document.getElementById('arabicKeyboard');
+      kb.innerHTML = '';
+      chars.forEach(c => {
+        const btn = document.createElement('button');
+        btn.className = 'kb-key';
+        btn.textContent = c;
+        btn.onclick = () => {
+          const inp = document.getElementById('dictInput');
+          inp.value += c;
+          inp.focus();
+          renderDict();
+        };
+        kb.appendChild(btn);
+      });
+    }
+
+    function setDictCat(cat, btn) {
+      currentDictCat = cat;
+      document.querySelectorAll('#view-dict .chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      renderDict();
+    }
+
+    function toggleFav(id) {
+      if (favorites.includes(id)) favorites = favorites.filter(x => x !== id);
+      else favorites.push(id);
+      localStorage.setItem('almulhim_favs', JSON.stringify(favorites));
+      renderDict();
+    }
+
+    function renderDict() {
+      document.getElementById('statDict').textContent = dictionaryData.length + 'টি';
+      document.getElementById('favCountBadge').textContent = favorites.length;
+
+      const q = document.getElementById('dictInput').value.trim().toLowerCase();
+      let list = dictionaryData;
+
+      if (currentDictCat === 'fav') list = list.filter(w => favorites.includes(w.id));
+      else if (currentDictCat !== 'all') list = list.filter(w => w.cat === currentDictCat);
+
+      if (q) {
+        list = list.filter(w => w.ar.includes(q) || w.plain.includes(q) || w.bn.includes(q) || w.root.includes(q));
+      }
+
+      document.getElementById('dictCounterText').textContent = `প্রদর্শিত: ${list.length}টি`;
+      const container = document.getElementById('dictResultsList');
+
+      if (!list.length) {
+        container.innerHTML = `<div class="card" style="text-align:center; color:var(--muted);">কোনো শব্দ পাওয়া যায়নি।</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(w => {
+        const isFav = favorites.includes(w.id);
+        return `
+          <div class="card">
+            <div class="word-top">
+              <div>
+                <span class="word-ar arabic">${w.ar}</span>
+                <span class="root-badge" style="margin-right:8px;">মাদ্দাহ: <span class="arabic">${w.root}</span></span>
+              </div>
+              <button class="icon-btn" onclick="toggleFav(${w.id})">${isFav ? '★ সেভড' : '☆ সেভ'}</button>
+            </div>
+            <div style="font-size:1.2rem; font-weight:700;">${w.bn}</div>
+            <div class="meta-row">
+              <span class="meta-pill"><strong>উৎস:</strong> ${w.cat}</span>
+              <span class="meta-pill"><strong>ধরন:</strong> ${w.type}</span>
+              <span class="meta-pill"><strong>বহুবচন:</strong> <span class="arabic">${w.plural}</span></span>
+            </div>
+            <div class="example-box">
+              <div class="ex-ar arabic">${w.ex_ar}</div>
+              <div class="ex-bn">${w.ex_bn}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function switchSarfTab(tab, btn) {
+      document.querySelectorAll('#view-sarf .chips-row .chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      ['gardan', 'babs', 'kayda', 'finder'].forEach(t => {
+        document.getElementById('sarf-' + t).style.display = (t === tab) ? 'block' : 'none';
+      });
+    }
+
+    function initSarf() {
+      const sel = document.getElementById('babSelect');
+      sel.innerHTML = sarfBabsData.map((b, i) => `<option value="${i}">${b.name}</option>`).join('');
+      renderGardanTable();
+
+      let babsHtml = sarfBabsData.map(b => `
+        <div class="card">
+          <div class="section-title">${b.name} — (${b.meaning})</div>
+          <p style="font-size:0.92rem; margin-bottom:6px;"><strong>আলামত:</strong> ${b.sign}</p>
+          <div class="example-box"><strong>উদাহরণ:</strong> <span class="arabic" style="font-size:1.15rem;">${b.examples}</span></div>
+        </div>
+      `).join('');
+
+      babsHtml += extraBabsInfo.map(eb => `
+        <div class="card">
+          <div class="section-title">${eb.title}</div>
+          <p style="font-size:0.92rem;">${eb.desc}</p>
+        </div>
+      `).join('');
+      document.getElementById('sarf-babs').innerHTML = babsHtml;
+
+      document.getElementById('sarf-kayda').innerHTML = sarfKaydas.map((k, idx) => `
+        <div class="accordion-item ${idx === 0 ? 'open' : ''}" onclick="this.classList.toggle('open')">
+          <div class="accordion-header">
+            <span>${k.title}</span>
+            <span>▼</span>
+          </div>
+          <div class="accordion-body">
+            <p style="font-size:0.95rem;">${k.body}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderGardanTable() {
+      const bIdx = document.getElementById('babSelect').value;
+      const tense = document.getElementById('tenseSelect').value;
+      const bab = sarfBabsData[bIdx];
+      const rows = bab[tense];
+
+      document.getElementById('gardanOutput').innerHTML = `
+        <div class="section-title">
+          <span>${bab.name}</span>
+          <span class="root-badge">${rows.length}টি সিগা</span>
+        </div>
+        <table class="gardan-table">
+          <thead>
+            <tr>
+              <th>সিগার নাম</th>
+              <th>আরবি রূপ</th>
+              <th>বাংলা অর্থ</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows.map(r => `
+              <tr>
+                <td><strong>${r[0]}</strong></td>
+                <td class="ar-col arabic">${r[1]}</td>
+                <td style="text-align:right;">${r[2]}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    function analyzeSigha() {
+      const val = document.getElementById('sighaFinderInput').value.trim();
+      const res = document.getElementById('sighaAnalysisResult');
+      if (!val) { res.innerHTML = ''; return; }
+
+      let msg = "বিশ্লেষণ ফলাফল:<br>";
+      if (val.startsWith("ي") || val.startsWith("ت") || val.startsWith("أ") || val.startsWith("ن")) {
+        msg += "• এটি <strong>ফে'লে মুজারে</strong> (বর্তমান/ভবিষ্যৎ কাল) হওয়ার সম্ভাবনা রয়েছে।<br>";
+      } else {
+        msg += "• এটি <strong>ফে'লে মাদী</strong> (অতীতকাল) হওয়ার সম্ভাবনা বেশি।<br>";
+      }
+
+      if (val.endsWith("ُوا")) msg += "• শেষে <strong>ُوا</strong> থাকায় এটি জমা মুযাক্কার।";
+      else if (val.endsWith("تُ")) msg += "• শেষে <strong>تُ</strong> থাকায় এটি ওয়াহিদ মুতাকাল্লিম (আমি)।";
+
+      res.innerHTML = `<div class="example-box">${msg}</div>`;
+    }
+
+    function initNahwChips() {
+      const row = document.getElementById('nahwFilterChips');
+      let html = `<button class="chip active" onclick="setNahwCat('all', this)">সব প্রকার</button>`;
+      nahwCategories.forEach(c => {
+        html += `<button class="chip" onclick="setNahwCat('${c.id}', this)">${c.short}</button>`;
+      });
+      row.innerHTML = html;
+    }
+
+    function setNahwCat(id, btn) {
+      currentNahwCat = id;
+      document.querySelectorAll('#nahwFilterChips .chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      renderNahw();
+    }
+
+    function renderNahw() {
+      const q = document.getElementById('nahwInput').value.trim().toLowerCase();
+      let cats = nahwCategories;
+      if (currentNahwCat !== 'all') cats = cats.filter(c => c.id === currentNahwCat);
+
+      let html = '';
+      cats.forEach(cat => {
+        const filtered = cat.items.filter(a => a.amel.toLowerCase().includes(q) || a.bn.toLowerCase().includes(q) || cat.title.toLowerCase().includes(q));
+        if (filtered.length) {
+          html += `
+            <div class="card">
+              <div class="section-title">${cat.title}</div>
+              <p style="font-size:0.88rem; color:var(--muted); margin-bottom:12px;"><strong>নিয়ম:</strong> ${cat.rule}</p>
+              <div class="nahw-timeline">
+                ${filtered.map(a => `
+                  <div class="amel-card">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                      <div>
+                        <span class="arabic" style="font-size:1.55rem; font-weight:700; color:var(--primary-light);">${a.amel}</span>
+                        <span style="font-weight:600; margin-right:8px;">— ${a.bn}</span>
+                      </div>
+                      <span class="amel-badge">আমেল #${a.no}</span>
+                    </div>
+                    <div class="example-box">
+                      <div class="ex-ar arabic">${a.ex_ar}</div>
+                      <div class="ex-bn">${a.ex_bn}</div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }
+      });
+
+      document.getElementById('nahwOutput').innerHTML = html || `<div class="card" style="text-align:center; color:var(--muted);">কোনো আমেল পাওয়া যায়নি।</div>`;
+    }
+
+    function renderQuiz() {
+      qAnswered = false;
+      const item = quizQuestions[qIndex % quizQuestions.length];
+      document.getElementById('quizContainer').innerHTML = `
+        <div style="font-size:1.1rem; font-weight:700; margin-bottom:12px;">প্রশ্ন ${(qIndex % quizQuestions.length) + 1}: ${item.q}</div>
+        ${item.opts.map((opt, idx) => `
+          <button class="quiz-option" onclick="checkQuiz(${idx}, this)">${opt}</button>
+        `).join('')}
+      `;
+    }
+
+    function checkQuiz(selected, btn) {
+      if (qAnswered) return;
+      qAnswered = true;
+      qTotal++;
+      const item = quizQuestions[qIndex % quizQuestions.length];
+      const allBtns = document.querySelectorAll('.quiz-option');
+
+      if (selected === item.ans) {
+        qScore++;
+        btn.classList.add('correct');
+      } else {
+        btn.classList.add('wrong');
+        allBtns[item.ans].classList.add('correct');
+      }
+      document.getElementById('quizScoreBadge').textContent = `স্কোর: ${qScore} / ${qTotal}`;
+    }
+
+    function nextQuiz() {
+      qIndex++;
+      renderQuiz();
+    }
+
+    // রান অ্যাপ
+    buildKeyboard();
+    renderDict();
+    initSarf();
+    initNahwChips();
+    renderNahw();
+    renderQuiz();
+  </script>
+</body>
+</html>
