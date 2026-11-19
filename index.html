@@ -1,103 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0b241c">
-  <meta name="description" content="আল মুলহীম — সরফ, নাহু ও অভিধান সহায়ক। আরবি শেখার বাংলা সহচর।">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="আল মুলহীম">
-  <title>আল মুলহীম — সরফ, নাহু ও অভিধান সহায়ক</title>
-  <link rel="manifest" id="appManifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>টুডু লিস্ট</title>
   <style>
-    :root{color-scheme:dark;--bg:#091b15;--bg2:#0e291f;--panel:#112f24;--panel2:#173a2c;--green:#1d563f;--gold:#d8b568;--gold2:#f0d99c;--cream:#f6f0df;--muted:#c0c6b7;--line:rgba(216,181,104,.25);--shadow:0 16px 42px rgba(0,0,0,.24);--radius:20px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#234a35 0,transparent 48%),var(--bg);color:var(--cream);font-family:system-ui,-apple-system,"Noto Sans Bengali","Hind Siliguri",sans-serif;line-height:1.6;min-height:100vh;padding-bottom:calc(86px + env(safe-area-inset-bottom))}button,input,select{font:inherit}button{color:inherit}.app{max-width:760px;margin:auto;padding:0 17px 24px}.topbar{padding:21px 0 15px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:13px}.logo{width:53px;height:53px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:17px;background:linear-gradient(145deg,#254a35,#10261d);color:var(--gold2);font-family:serif;font-size:26px;box-shadow:0 0 0 4px rgba(216,181,104,.06)}.brand h1{font-size:1.24rem;line-height:1.3;margin:0;color:var(--cream);letter-spacing:.01em}.brand p{font-size:.77rem;color:var(--gold);margin:3px 0 0}.top-actions{display:flex;gap:8px}.round-btn{width:40px;height:40px;border-radius:13px;border:1px solid var(--line);background:#ffffff0a;cursor:pointer;font-size:17px}.hero{padding:18px 0 9px}.eyebrow{color:var(--gold);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase}.hero h2{font-size:1.65rem;line-height:1.32;margin:5px 0 7px}.hero p{color:var(--muted);font-size:.9rem;margin:0}.searchbox{position:relative;margin:15px 0 20px}.searchbox input{width:100%;height:57px;border-radius:17px;border:1px solid var(--line);background:#10271e;color:var(--cream);padding:0 56px;font-size:.95rem;outline:none;box-shadow:var(--shadow)}.searchbox input:focus{border-color:var(--gold)}.searchbox input::placeholder{color:#aab3a5}.search-action{position:absolute;top:7px;width:43px;height:43px;border:0;border-radius:13px;background:transparent;cursor:pointer;font-size:19px}.search-action.left{left:7px}.search-action.right{right:7px}.keyboard{display:none;margin:-8px 0 18px;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:16px;direction:rtl;grid-template-columns:repeat(9,1fr);gap:6px}.keyboard.open{display:grid}.key{border:1px solid var(--line);border-radius:9px;background:var(--panel2);padding:7px 2px;color:var(--cream);font-family:serif;font-size:1.25rem;cursor:pointer}.key:active,.primary-btn:active,.shortcut:active{transform:scale(.97)}.section{display:none;animation:appear .24s ease}.section.active{display:block}@keyframes appear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}.card{background:linear-gradient(145deg,rgba(23,58,44,.96),rgba(15,42,31,.96));border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:0 0 14px;box-shadow:var(--shadow)}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}.card h3{margin:0;color:var(--cream);font-size:1.1rem}.card-sub{color:var(--muted);font-size:.82rem;margin:3px 0 0}.badge{color:var(--gold2);border:1px solid var(--line);background:#d8b56812;padding:4px 9px;border-radius:99px;font-size:.72rem;white-space:nowrap}.shortcut-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}.shortcut{border:1px solid var(--line);border-radius:14px;background:#0d261d;padding:11px 6px;text-align:center;cursor:pointer;transition:.18s}.shortcut:hover{border-color:var(--gold)}.shortcut .ar{font-family:serif;direction:rtl;font-size:1.42rem;color:var(--gold2);line-height:1.3}.shortcut .bn{font-size:.76rem;color:var(--muted);margin-top:3px}.select-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}.field label{display:block;color:var(--muted);font-size:.75rem;margin:0 0 5px}.field select,.field input{width:100%;min-height:44px;background:#0b241b;color:var(--cream);border:1px solid var(--line);border-radius:11px;padding:8px 10px;outline:none}.table-wrap{overflow:auto;border-radius:13px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;min-width:400px}th{background:#244834;color:var(--gold2);font-size:.78rem;text-align:left;padding:9px 10px}td{padding:9px 10px;border-top:1px solid #ffffff0d;font-size:.82rem;color:var(--muted)}td.arabic-cell{font-family:serif;font-size:1.3rem;color:var(--cream);text-align:right;direction:rtl}.table-note{font-size:.74rem;color:var(--muted);margin:8px 1px 0}.nahw-intro{display:flex;align-items:center;gap:13px}.arch{font-size:2.5rem;color:var(--gold)}.bullet-list{padding:0 20px 0 0;margin:13px 0 0;color:var(--muted);font-size:.88rem}.bullet-list li{padding:3px 0}.primary-btn,.soft-btn{border:1px solid var(--gold);border-radius:12px;padding:10px 14px;background:linear-gradient(130deg,#d8b568,#b28c43);color:#15251b;font-weight:700;cursor:pointer}.soft-btn{background:transparent;color:var(--gold2);font-size:.83rem;padding:8px 11px}.row-between{display:flex;justify-content:space-between;align-items:center;gap:8px}.search-results{margin-top:12px}.result-card,.word-card,.rule-card{background:#0d261d;border:1px solid var(--line);border-radius:15px;padding:14px;margin:9px 0}.result-card{cursor:pointer}.word-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.word-ar{font-family:serif;direction:rtl;font-size:1.8rem;color:var(--gold2)}.root{font-size:.76rem;border:1px solid var(--line);border-radius:99px;padding:3px 9px;color:var(--gold)}.word-meaning{color:var(--cream);font-weight:600}.word-meta{color:var(--muted);font-size:.82rem;margin-top:4px}.example{margin-top:10px;padding:9px 11px;border-right:3px solid var(--gold);border-radius:9px;background:#d8b5680b}.example .ar{font-family:serif;direction:rtl;text-align:right;font-size:1.15rem;color:var(--cream)}.example .translation{font-size:.78rem;color:var(--muted)}.chip-row{display:flex;gap:7px;overflow:auto;padding:2px 0 8px;scrollbar-width:none}.chip{white-space:nowrap;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:99px;padding:7px 12px;font-size:.78rem;cursor:pointer}.chip.active{background:#d8b56818;border-color:var(--gold);color:var(--gold2)}.empty{padding:24px;text-align:center;color:var(--muted)}.rule-card h4{margin:0 0 5px;color:var(--gold2)}.rule-card p{color:var(--muted);font-size:.85rem;margin:4px 0}.rule-card .ar{font-family:serif;direction:rtl;font-size:1.3rem;color:var(--cream)}.bottom-nav{position:fixed;z-index:10;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(8,27,20,.94);backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));max-width:760px;margin:auto}.nav-item{border:0;background:none;color:#aab3a5;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:.7rem;cursor:pointer;padding:3px}.nav-item .ico{font-size:1.22rem}.nav-item.active{color:var(--gold2)}.nav-item.active .ico{filter:drop-shadow(0 0 5px #d8b56888)}.install-hint{font-size:.72rem;color:var(--muted);text-align:center;padding:8px}.hidden{display:none!important}.count{font-size:.75rem;color:var(--muted)}
-    @media(min-width:650px){.app{padding-left:24px;padding-right:24px}.topbar{padding-top:27px}.hero h2{font-size:1.9rem}.card{padding:21px}.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.home-grid .card{margin-bottom:0}.home-grid .card:first-child{grid-column:1/-1}.home-grid .card:last-child{grid-column:1/-1}.}
-    @media(max-width:390px){.app{padding-left:12px;padding-right:12px}.card{padding:15px}.shortcut-grid{gap:6px}.shortcut .ar{font-size:1.25rem}.brand h1{font-size:1.1rem}.hero h2{font-size:1.48rem}}
+    :root { --bg:#f4f7fb; --card:#fff; --text:#172033; --muted:#758198; --primary:#4f46e5; --line:#e7ebf2; --danger:#ef4444; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:linear-gradient(135deg,#eef2ff,#f8fafc); color:var(--text); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+    .app { width:min(680px,calc(100% - 28px)); margin:48px auto; }
+    h1 { margin:0 0 20px; font-size:28px; }
+    .composer { display:flex; gap:10px; padding:14px; background:var(--card); border-radius:16px; box-shadow:0 10px 30px rgba(30,41,59,.08); }
+    input[type="text"] { flex:1; min-width:0; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-size:16px; color:var(--text); outline:none; }
+    input[type="text"]:focus { border-color:#818cf8; box-shadow:0 0 0 3px rgba(129,140,248,.15); }
+    button { border:0; border-radius:10px; cursor:pointer; font-weight:700; }
+    .add { background:var(--primary); color:#fff; padding:12px 18px; }
+    .toolbar { display:flex; align-items:center; justify-content:space-between; margin:18px 2px 10px; }
+    .filters { display:flex; gap:6px; }
+    .filter { background:transparent; color:var(--muted); padding:8px 10px; }
+    .filter.active { background:#e0e7ff; color:#3730a3; }
+    .clear { background:transparent; color:var(--danger); }
+    .list { display:grid; gap:8px; }
+    .task { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; }
+    .task.done .text { color:var(--muted); text-decoration:line-through; }
+    .check { width:20px; height:20px; accent-color:var(--primary); }
+    .text { flex:1; overflow-wrap:anywhere; }
+    .delete { background:#fee2e2; color:#b91c1c; width:34px; height:34px; }
+    .empty { text-align:center; color:var(--muted); background:rgba(255,255,255,.55); border-radius:12px; padding:28px 12px; }
+    @media(max-width:480px){.app{margin:24px auto}.toolbar{align-items:flex-start}.composer{padding:10px}.add{padding-inline:12px}}
   </style>
 </head>
 <body>
   <main class="app">
-    <header class="topbar">
-      <div class="brand"><div class="logo" aria-label="ইসলামিক লোগো">الميزان</div><div><h1>আল মুলহীম</h1><p>সরফ, নাহু ও অভিধান সহায়ক</p></div></div>
-      <div class="top-actions"><button class="round-btn" id="installBtn" aria-label="অ্যাপ ইনস্টল করুন" title="অ্যাপ ইনস্টল করুন">⬇️</button></div>
-    </header>
-    <div class="hero"><div class="eyebrow">আরবি শেখার বাংলা সহচর</div><h2>ইলমের পথে আপনার<br>সহজ সঙ্গী</h2><p>শব্দের অর্থ, সরফের গারদান ও নাহুর আমেল—এক জায়গায়।</p></div>
-    <div class="searchbox"><button class="search-action left" id="keyboardToggle" aria-label="আরবি কীবোর্ড">⌨️</button><input id="globalSearch" type="search" autocomplete="off" placeholder="শব্দ, মাদ্দাহ বা আমেল খুঁজুন…" aria-label="স্মার্ট অনুসন্ধান"><button class="search-action right" id="searchGo" aria-label="অনুসন্ধান">🔍</button></div>
-    <div id="arabicKeyboard" class="keyboard" aria-label="আরবি ভার্চুয়াল কীবোর্ড"></div>
-    <div id="globalResults" class="search-results"></div>
+    <h1>টুডু লিস্ট</h1>
+    <form class="composer" id="form">
+      <input id="input" type="text" placeholder="নতুন কাজ লিখুন..." aria-label="নতুন কাজ" maxlength="200" autocomplete="off">
+      <button class="add" type="submit">যোগ করুন</button>
+    </form>
 
-    <section class="section active" id="view-home">
-      <div class="home-grid">
-        <article class="card"><div class="card-head"><div><h3>📖 অভিধান</h3><p class="card-sub">মাদ্দাহ ভিত্তিক অনুসন্ধান বা নিয়ম খুঁজুন...</p></div><span class="badge">শব্দভাণ্ডার</span></div><div class="shortcut-grid" id="popularWords"></div><button class="soft-btn" style="width:100%;margin-top:12px" data-nav="dict">সম্পূর্ণ অভিধান দেখুন →</button></article>
-        <article class="card"><div class="card-head"><div><h3>⚙️ ইলমুস সরফ</h3><p class="card-sub">বাব ও কাল নির্বাচন করে গারদান দেখুন</p></div><span class="badge">صرف</span></div><div class="select-row"><div class="field"><label for="babSelect">বাব নির্বাচন</label><select id="babSelect"></select></div><div class="field"><label for="tenseSelect">ফেল নির্বাচন</label><select id="tenseSelect"><option value="madi">মাদী মারুফ</option><option value="mudari">মুজারে মারুফ</option></select></div></div><div id="homeGardan"></div><button class="soft-btn" style="width:100%;margin-top:11px" data-nav="sarf">পূর্ণাঙ্গ গারদান ও কায়দা →</button></article>
-        <article class="card"><div class="nahw-intro"><span class="arch" aria-hidden="true">🏛️</span><div><h3>📐 ইলমে নাহু</h3><p class="card-sub">শত আমেল সূচি</p></div></div><ul class="bullet-list"><li>হুরুফে জাররাহ — ইসমে যের প্রদানকারী</li><li>মুশাব্বাহ বিল-ফেল — ইসম ও খবরের আমেল</li><li>নসব ও জযম দানকারী আমেল</li><li>আমেলে লফযী ও মা'নবী</li></ul><button class="soft-btn" style="width:100%;margin-top:12px" data-nav="nahw">আমেলের বিস্তারিত পড়ুন →</button></article>
+    <div class="toolbar">
+      <div class="filters" aria-label="ফিল্টার">
+        <button class="filter active" data-filter="all">সব</button>
+        <button class="filter" data-filter="active">অসমাপ্ত</button>
+        <button class="filter" data-filter="done">সম্পন্ন</button>
       </div>
-      <p class="install-hint">অ্যাপটি হোম স্ক্রিনে যোগ করতে উপরের ⬇️ বোতাম বা ব্রাউজারের মেনু ব্যবহার করুন।</p>
-    </section>
+      <button class="clear" id="clearDone">সম্পন্নগুলো মুছুন</button>
+    </div>
 
-    <section class="section" id="view-dict"><article class="card"><div class="card-head"><div><h3>📖 আরবি-বাংলা অভিধান</h3><p class="card-sub">আরবি শব্দ, বাংলা অর্থ অথবা মাদ্দাহ দিয়ে খুঁজুন</p></div><span class="badge" id="dictCount">০ শব্দ</span></div><div class="field"><input id="dictSearch" type="search" placeholder="যেমন: رحمة, রহমত, ر ح م" aria-label="অভিধান অনুসন্ধান"></div><div class="chip-row" id="dictChips" style="margin-top:12px"><button class="chip active" data-cat="all">সব শব্দ</button><button class="chip" data-cat="কুরআন">কুরআনিক</button><button class="chip" data-cat="হাদিস">হাদিস</button><button class="chip" data-cat="fav">★ সংরক্ষিত</button></div></article><div id="dictResults"></div></section>
-
-    <section class="section" id="view-sarf"><article class="card"><div class="card-head"><div><h3>⚙️ ইলমুস সরফ</h3><p class="card-sub">সিগা, গারদান ও সরফের প্রাথমিক কায়দা</p></div><span class="badge">فعل</span></div><div class="select-row"><div class="field"><label for="sarfBab">বাব</label><select id="sarfBab"></select></div><div class="field"><label for="sarfTense">কাল / সিগা</label><select id="sarfTense"><option value="madi">মাদী মারুফ</option><option value="mudari">মুজারে মারুফ</option><option value="amr">আমর হাযির</option><option value="nahi">নাহী হাযির</option></select></div></div><div id="fullGardan"></div></article><article class="card"><h3>📚 বাব পরিচিতি</h3><div id="babInfo"></div></article><article class="card"><h3>📜 সরফের কয়েকটি কায়দা</h3><div id="sarfRules"></div></article></section>
-
-    <section class="section" id="view-nahw"><article class="card"><div class="card-head"><div><h3>📐 ইলমে নাহু — শত আমেল</h3><p class="card-sub">আমেল, অর্থ ও উদাহরণ দিয়ে নিয়ম জানুন</p></div><span class="badge">مائة عامل</span></div><div class="field"><input id="nahwSearch" type="search" placeholder="আমেল বা অর্থ খুঁজুন…"></div><div class="chip-row" id="nahwChips" style="margin-top:12px"></div></article><div id="nahwResults"></div></section>
+    <div class="list" id="list"></div>
   </main>
-  <nav class="bottom-nav" aria-label="প্রধান নেভিগেশন"><button class="nav-item active" data-nav="home"><span class="ico">⌂</span>হোম</button><button class="nav-item" data-nav="dict"><span class="ico">📖</span>অভিধান</button><button class="nav-item" data-nav="sarf"><span class="ico">⚙️</span>সরফ</button><button class="nav-item" data-nav="nahw"><span class="ico">📐</span>নাহু</button></nav>
+
   <script>
-  'use strict';
-  const dictionary=[
-    {ar:'رَحْمَةٌ',plain:'رحمة',root:'ر ح م',bn:'রহমত, দয়া, করুণা',cat:'কুরআন',type:'বিশেষ্য',example:'وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ',translation:'আমার রহমত সবকিছুকে পরিবেষ্টন করে।'},
-    {ar:'كِتَابٌ',plain:'كتاب',root:'ك ت ب',bn:'কিতাব, বই, গ্রন্থ',cat:'কুরআন',type:'বিশেষ্য',example:'ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ',translation:'এটি সেই কিতাব, যাতে কোনো সন্দেহ নেই।'},
-    {ar:'عِلْمٌ',plain:'علم',root:'ع ل م',bn:'ইলম, জ্ঞান, বিদ্যা',cat:'কুরআন',type:'বিশেষ্য',example:'وَقُلْ رَبِّ زِدْنِي عِلْمًا',translation:'বলুন, হে আমার রব, আমার জ্ঞান বাড়িয়ে দিন।'},
-    {ar:'هُدًى',plain:'هدى',root:'هـ د ي',bn:'হেদায়েত, পথনির্দেশ',cat:'কুরআন',type:'বিশেষ্য',example:'هُدًى لِلْمُتَّقِينَ',translation:'মুত্তাকীদের জন্য পথনির্দেশ।'},
-    {ar:'تَقْوَى',plain:'تقوى',root:'و ق ي',bn:'তাকওয়া, আল্লাহভীতি',cat:'কুরআন',type:'বিশেষ্য',example:'فَإِنَّ خَيْرَ الزَّادِ التَّقْوَىٰ',translation:'নিশ্চয় সর্বোত্তম পাথেয় হলো তাকওয়া।'},
-    {ar:'نِيَّةٌ',plain:'نية',root:'ن و ي',bn:'নিয়ত, সংকল্প',cat:'হাদিস',type:'বিশেষ্য',example:'إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ',translation:'কর্মসমূহ নিয়তের ওপর নির্ভরশীল।'},
-    {ar:'مَغْفِرَةٌ',plain:'مغفرة',root:'غ ف ر',bn:'ক্ষমা, মার্জনা',cat:'কুরআন',type:'বিশেষ্য',example:'وَاللَّهُ غَفُورٌ رَحِيمٌ',translation:'আর আল্লাহ ক্ষমাশীল, পরম দয়ালু।'},
-    {ar:'صَبْرٌ',plain:'صبر',root:'ص ب ر',bn:'সবর, ধৈর্য, অবিচলতা',cat:'কুরআন',type:'বিশেষ্য',example:'إِنَّ اللَّهَ مَعَ الصَّابِرِينَ',translation:'নিশ্চয় আল্লাহ ধৈর্যশীলদের সঙ্গে আছেন।'},
-    {ar:'حَلَالٌ',plain:'حلال',root:'ح ل ل',bn:'হালাল, বৈধ',cat:'হাদিস',type:'বিশেষণ',example:'إِنَّ الْحَلَالَ بَيِّنٌ',translation:'নিশ্চয় হালাল সুস্পষ্ট।'},
-    {ar:'خَلَقَ',plain:'خلق',root:'خ ل ق',bn:'সৃষ্টি করা, তিনি সৃষ্টি করেছেন',cat:'কুরআন',type:'ফে\'ল',example:'خَلَقَ الْإِنْسَانَ مِنْ عَلَقٍ',translation:'তিনি মানুষকে জমাট রক্ত থেকে সৃষ্টি করেছেন।'},
-    {ar:'رِزْقٌ',plain:'رزق',root:'ر ز ق',bn:'রিজিক, জীবিকা, অনুগ্রহ',cat:'কুরআন',type:'বিশেষ্য',example:'وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ',translation:'আমি তাদের যে রিজিক দিয়েছি, তা থেকে তারা ব্যয় করে।'},
-    {ar:'أَمَانَةٌ',plain:'أمانة',root:'أ م ن',bn:'আমানত, বিশ্বস্ততা',cat:'হাদিস',type:'বিশেষ্য',example:'أَدِّ الْأَمَانَةَ إِلَى مَنِ ائْتَمَنَكَ',translation:'যে তোমার কাছে আমানত রেখেছে, তাকে তা ফিরিয়ে দাও।'},
-    {ar:'نُورٌ',plain:'نور',root:'ن و ر',bn:'নূর, আলো, জ্যোতি',cat:'কুরআন',type:'বিশেষ্য',example:'اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ',translation:'আল্লাহ আসমানসমূহ ও জমিনের নূর।'},
-    {ar:'بَرَكَةٌ',plain:'بركة',root:'ب ر ك',bn:'বরকত, কল্যাণ, প্রাচুর্য',cat:'হাদিস',type:'বিশেষ্য',example:'اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا',translation:'হে আল্লাহ, আমাদের রিজিকে বরকত দিন।'},
-    {ar:'شُكْرٌ',plain:'شكر',root:'ش ك ر',bn:'শুকর, কৃতজ্ঞতা',cat:'কুরআন',type:'বিশেষ্য',example:'لَئِنْ شَكَرْتُمْ لَأَزِيدَنَّكُمْ',translation:'তোমরা কৃতজ্ঞ হলে আমি অবশ্যই তোমাদের বাড়িয়ে দেব।'}
-  ];
-  const pronouns=['ওয়াহিদ মুযাক্কার গায়েব','তাসনিয়া মুযাক্কার গায়েব','জমা মুযাক্কার গায়েব','ওয়াহিদ মুয়ান্নাস গায়েব','তাসনিয়া মুয়ান্নাস গায়েব','জমা মুয়ান্নাস গায়েব','ওয়াহিদ মুযাক্কার হাযির','তাসনিয়া মুযাক্কার হাযির','জমা মুযাক্কার হাযির','ওয়াহিদ মুয়ান্নাস হাযির','তাসনিয়া মুয়ান্নাস হাযির','জমা মুয়ান্নাস হাযির','ওয়াহিদ মুতাকাল্লিম','জমা মুতাকাল্লিম'];
-  const babs=[
-    {id:'nasara',name:'বাব নাসারা (نَصَرَ - يَنْصُرُ)',meaning:'সাহায্য করা',sign:'মাদীতে عين কালিমায় যবর, মুজারেতে পেশ।',madi:['نَصَرَ','نَصَرَا','نَصَرُوا','نَصَرَتْ','نَصَرَتَا','نَصَرْنَ','نَصَرْتَ','نَصَرْتُمَا','نَصَرْتُمْ','نَصَرْتِ','نَصَرْتُمَا','نَصَرْتُنَّ','نَصَرْتُ','نَصَرْنَا'],mudari:['يَنْصُرُ','يَنْصُرَانِ','يَنْصُرُونَ','تَنْصُرُ','تَنْصُرَانِ','يَنْصُرْنَ','تَنْصُرُ','تَنْصُرَانِ','تَنْصُرُونَ','تَنْصُرِينَ','تَنْصُرَانِ','تَنْصُرْنَ','أَنْصُرُ','نَنْصُرُ'],amr:['اُنْصُرْ','اُنْصُرَا','اُنْصُرُوا','اُنْصُرِي','اُنْصُرَا','اُنْصُرْنَ'],nahi:['لَا تَنْصُرْ','لَا تَنْصُرَا','لَا تَنْصُرُوا','لَا تَنْصُرِي','لَا تَنْصُرَا','لَا تَنْصُرْنَ']},
-    {id:'daraba',name:'বাব দারাবা (ضَرَبَ - يَضْرِبُ)',meaning:'প্রহার করা / দৃষ্টান্ত দেওয়া',sign:'মাদীতে عين কালিমায় যবর, মুজারেতে যের।',madi:['ضَرَبَ','ضَرَبَا','ضَرَبُوا','ضَرَبَتْ','ضَرَبَتَا','ضَرَبْنَ','ضَرَبْتَ','ضَرَبْتُمَا','ضَرَبْتُمْ','ضَرَبْتِ','ضَرَبْتُمَا','ضَرَبْتُنَّ','ضَرَبْتُ','ضَرَبْنَا'],mudari:['يَضْرِبُ','يَضْرِبَانِ','يَضْرِبُونَ','تَضْرِبُ','تَضْرِبَانِ','يَضْرِبْنَ','تَضْرِبُ','تَضْرِبَانِ','تَضْرِبُونَ','تَضْرِبِينَ','تَضْرِبَانِ','تَضْرِبْنَ','أَضْرِبُ','نَضْرِبُ'],amr:['اِضْرِبْ','اِضْرِبَا','اِضْرِبُوا','اِضْرِبِي','اِضْرِبَا','اِضْرِبْنَ'],nahi:['لَا تَضْرِبْ','لَا تَضْرِبَا','لَا تَضْرِبُوا','لَا تَضْرِبِي','لَا تَضْرِبَا','لَا تَضْرِبْنَ']},
-    {id:'fataha',name:'বাব ফাতাহা (فَتَحَ - يَفْتَحُ)',meaning:'খোলা / বিজয় দান করা',sign:'মাদী ও মুজারে উভয় কালে عين কালিমায় যবর।',madi:['فَتَحَ','فَتَحَا','فَتَحُوا','فَتَحَتْ','فَتَحَتَا','فَتَحْنَ','فَتَحْتَ','فَتَحْتُمَا','فَتَحْتُمْ','فَتَحْتِ','فَتَحْتُمَا','فَتَحْتُنَّ','فَتَحْتُ','فَتَحْنَا'],mudari:['يَفْتَحُ','يَفْتَحَانِ','يَفْتَحُونَ','تَفْتَحُ','تَفْتَحَانِ','يَفْتَحْنَ','تَفْتَحُ','تَفْتَحَانِ','تَفْتَحُونَ','تَفْتَحِينَ','تَفْتَحَانِ','تَفْتَحْنَ','أَفْتَحُ','نَفْتَحُ'],amr:['اِفْتَحْ','اِفْتَحَا','اِفْتَحُوا','اِفْتَحِي','اِفْتَحَا','اِفْتَحْنَ'],nahi:['لَا تَفْتَحْ','لَا تَفْتَحَا','لَا تَفْتَحُوا','لَا تَفْتَحِي','لَا تَفْتَحَا','لَا تَفْتَحْنَ']}
-  ];
-  const nahwGroups=[
-    {id:'jar',title:'হুরুফে জাররাহ',short:'হুরুফে জার',rule:'ইসমের আগে এসে ইসমকে মাজরূর (সাধারণত যের) করে।',items:[['بِـ','দ্বারা, সঙ্গে','بِسْمِ اللَّهِ','আল্লাহর নামে'],['مِنْ','থেকে, হতে','مِنَ الْمَسْجِدِ','মসজিদ থেকে'],['إِلَى','দিকে, পর্যন্ত','إِلَى اللَّهِ','আল্লাহর দিকে'],['عَنْ','সম্পর্কে, থেকে','عَنِ النَّبِيِّ','নবী সম্পর্কে'],['عَلَى','উপর','عَلَى كُلِّ شَيْءٍ','সবকিছুর ওপর'],['فِي','মধ্যে','فِي الْقَلْبِ','অন্তরে'],['لِـ','জন্য, অধিকার','لِلَّهِ الْحَمْدُ','সকল প্রশংসা আল্লাহর জন্য'],['كَـ','মতো','كَالْقَمَرِ','চাঁদের মতো']]},
-    {id:'mushabbah',title:'হুরুফে মুশাব্বাহ বিল-ফেল',short:'মুশাব্বাহ বিল-ফেল',rule:'ইসমকে মানসূব (যবর) এবং খবরকে মারফূ (পেশ) করে।',items:[['إِنَّ','নিশ্চয়','إِنَّ اللَّهَ مَعَ الصَّابِرِينَ','নিশ্চয় আল্লাহ ধৈর্যশীলদের সঙ্গে আছেন'],['أَنَّ','যে, নিশ্চয়','عَلِمْتُ أَنَّ الْحَقَّ وَاضِحٌ','আমি জানলাম যে সত্য স্পষ্ট'],['كَأَنَّ','যেন','كَأَنَّهَا كَوْكَبٌ دُرِّيٌّ','যেন তা উজ্জ্বল নক্ষত্র'],['لَكِنَّ','কিন্তু','لَكِنَّ اللَّهَ غَفُورٌ','কিন্তু আল্লাহ ক্ষমাশীল'],['لَيْتَ','হায়, যদি','يَا لَيْتَنِي كُنْتُ مَعَهُمْ','হায়, যদি আমি তাদের সঙ্গে থাকতাম'],['لَعَلَّ','সম্ভবত, আশা করি','لَعَلَّكُمْ تُفْلِحُونَ','যাতে তোমরা সফল হও']]},
-    {id:'nasb',title:'নসব দানকারী হরফ',short:'নসব দানকারী',rule:'কিছু হরফ ফে\'লে মুজারের শেষে নসব (যবর) দেয়।',items:[['أَنْ','যে / করতে','أُرِيدُ أَنْ أَتَعَلَّمَ','আমি শিখতে চাই'],['لَنْ','কখনো না (ভবিষ্যৎ)','لَنْ تَنَالُوا الْبِرَّ','তোমরা নেকি অর্জন করতে পারবে না'],['كَيْ','যাতে','كَيْ تَقَرَّ عَيْنُهَا','যাতে তার চোখ জুড়ায়'],['إِذَنْ','তাহলে','إِذَنْ أُكْرِمَكَ','তাহলে আমি তোমাকে সম্মান করব']]},
-    {id:'jazm',title:'জযম দানকারী আমেল',short:'জযম দানকারী',rule:'ফে\'লে মুজারেকে মাজযূম (সাকিন/জযম) করে।',items:[['لَمْ','করেনি (অতীত অর্থ)','لَمْ يَلِدْ وَلَمْ يُولَدْ','তিনি কাউকে জন্ম দেননি, তাঁকেও জন্ম দেওয়া হয়নি'],['لَمَّا','এখনও করেনি','لَمَّا يَذُوقُوا عَذَابِ','তারা এখনও শাস্তি আস্বাদন করেনি'],['لَا','করো না (নিষেধ)','لَا تَحْزَنْ','দুঃখ করো না'],['إِنْ','যদি','إِنْ تَنْصُرُوا اللَّهَ يَنْصُرْكُمْ','তোমরা আল্লাহকে সাহায্য করলে তিনি তোমাদের সাহায্য করবেন'],['مَنْ','যে ব্যক্তি','مَنْ يَعْمَلْ سُوءًا يُجْزَ بِهِ','যে মন্দ কাজ করবে, তার প্রতিফল পাবে']]},
-    {id:'marfu',title:'রফ ও ইবতিদা',short:'আমেলে মা\'নবী',rule:'ইবতিদা ও তাজাররুদ—অর্থগত আমেল; মুবতাদা-খবর এবং আমেলমুক্ত মুজারে মারফূ হয়।',items:[['اَلْاِبْتِدَاءُ','বাক্যের শুরুতে ইসমকে রফ দেয়','اللَّهُ أَكْبَرُ','আল্লাহ মহান'],['اَلتَّجَرُّدُ','নাসিব-জাযিম থেকে মুক্ত থাকা','يَنْصُرُ زَيْدٌ','যায়েদ সাহায্য করে']]}
-  ];
-  const rules=[['হাফত আকসাম','মূল অক্ষরের বিবেচনায় ফে\'ল ছহীহ, মাহমূয, মুদা\'আফ, মিসাল, আজওয়াফ, নাকিস ও লাফীফ—এই সাত প্রকার।'],['ইলাল','হরফে ইল্লত (و، ا، ي) নির্দিষ্ট অবস্থায় পরিবর্তিত বা বর্জিত হতে পারে; শব্দের বাব ও সিগা দেখে নিয়ম নির্ণয় করতে হয়।'],['ইদগাম','একই বা কাছাকাছি মাখরাজের অক্ষর পাশাপাশি এলে নির্দিষ্ট নিয়মে একীভূত উচ্চারণ হতে পারে।'],['ফে\'লে আমর','আমর হাযির সাধারণত মুজারে হাযিরের সিগা থেকে তৈরি হয়; হামযায়ে ওয়াসল ও হরকতের নিয়ম প্রযোজ্য।']];
-  const keyboardLetters='ابتثجحخدذرزسشصضطظعغفقكلمنهويءأةإآ';
-  let favorites=readStorage('almulhim-favs',[]),dictCategory='all',nahwCategory='all',installPrompt=null;
-  function readStorage(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}}
-  function esc(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-  function normalize(s){return String(s||'').toLowerCase().replace(/[ًٌٍَُِّْٰـ]/g,'').trim()}
-  function navTo(name){document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id==='view-'+name));document.querySelectorAll('.nav-item').forEach(x=>x.classList.toggle('active',x.dataset.nav===name));document.getElementById('globalResults').innerHTML='';document.getElementById('globalSearch').value='';window.scrollTo({top:0,behavior:'smooth'});if(name==='dict')renderDictionary();if(name==='nahw')renderNahw()}
-  function renderPopular(){document.getElementById('popularWords').innerHTML=dictionary.slice(0,3).map((w,i)=>`<button class="shortcut" data-word="${esc(w.plain)}"><div class="ar">${w.ar}</div><div class="bn">${['রহমত','কিতাব','ইলম'][i]}</div></button>`).join('')}
-  function renderGardan(into,babId,tense){const bab=babs.find(b=>b.id===babId)||babs[0],forms=bab[tense]||bab.madi,labels=(tense==='amr'||tense==='nahi')?pronouns.slice(6,12):pronouns;let rows=forms.map((form,i)=>`<tr><td>${labels[i]||''}</td><td class="arabic-cell">${form}</td></tr>`).join('');document.getElementById(into).innerHTML=`<div class="table-wrap"><table><thead><tr><th>সিগা</th><th style="text-align:right">আরবি গারদান</th></tr></thead><tbody>${rows}</tbody></table></div><p class="table-note">উদাহরণ: ${bab.name} · আরবি রূপগুলো শিক্ষাসহায়ক নমুনা।</p>`}
-  function renderDictionary(){const q=normalize(document.getElementById('dictSearch').value),container=document.getElementById('dictResults');let list=dictionary.filter(w=>(dictCategory==='all'||(dictCategory==='fav'?favorites.includes(w.plain):w.cat===dictCategory))&&(!q||normalize([w.ar,w.plain,w.root,w.bn,w.cat].join(' ')).includes(q)));document.getElementById('dictCount').textContent=`${list.length} শব্দ`;container.innerHTML=list.length?list.map(w=>`<article class="word-card"><div class="word-top"><div class="word-ar">${w.ar}</div><button class="soft-btn fav-btn" data-fav="${esc(w.plain)}" aria-label="সংরক্ষণ">${favorites.includes(w.plain)?'★':'☆'}</button></div><div class="row-between"><span class="word-meaning">${w.bn}</span><span class="root">مادّة: ${w.root}</span></div><div class="word-meta">${w.cat} · ${w.type}</div><div class="example"><div class="ar">${w.example}</div><div class="translation">${w.translation}</div></div></article>`).join(''):'<div class="empty">কোনো শব্দ পাওয়া যায়নি। অন্য বানান দিয়ে চেষ্টা করুন।</div>'}
-  function renderNahw(){const query=normalize(document.getElementById('nahwSearch').value),groups=nahwGroups.filter(g=>(nahwCategory==='all'||g.id===nahwCategory)&&(!query||normalize([g.title,g.rule,...g.items.flat()].join(' ')).includes(query)));document.getElementById('nahwResults').innerHTML=groups.length?groups.map(g=>`<article class="card"><div class="card-head"><div><h3>${g.title}</h3><p class="card-sub">${g.rule}</p></div><span class="badge">${g.items.length} উদাহরণ</span></div>${g.items.map(it=>`<div class="rule-card"><div class="row-between"><h4 class="ar">${it[0]}</h4><span class="word-meta">${it[1]}</span></div><p class="ar">${it[2]}</p><p>${it[3]}</p></div>`).join('')}</article>`).join(''):'<div class="empty">এই অনুসন্ধানে কোনো আমেল মেলেনি।</div>'}
-  function searchAll(){const q=normalize(document.getElementById('globalSearch').value),box=document.getElementById('globalResults');if(!q){box.innerHTML='';return}const words=dictionary.filter(w=>normalize([w.ar,w.plain,w.root,w.bn].join(' ')).includes(q)).slice(0,4);const groups=nahwGroups.flatMap(g=>g.items.map(i=>({group:g,item:i}))).filter(x=>normalize(x.item.join(' ')).includes(q)).slice(0,3);let html=words.map(w=>`<div class="result-card" data-word="${esc(w.plain)}"><div class="row-between"><span class="word-ar">${w.ar}</span><span class="root">অভিধান</span></div><div>${w.bn} · মাদ্দাহ: ${w.root}</div></div>`).join('')+groups.map(x=>`<div class="result-card" data-nav="nahw"><div class="row-between"><span class="word-ar">${x.item[0]}</span><span class="root">${x.group.short}</span></div><div>${x.item[1]} — ${x.item[3]}</div></div>`).join('');box.innerHTML=html||'<div class="empty">কোনো ফলাফল পাওয়া যায়নি। আরবি, বাংলা অর্থ বা মাদ্দাহ দিয়ে চেষ্টা করুন।</div>'}
-  function toggleFav(word){favorites=favorites.includes(word)?favorites.filter(x=>x!==word):[...favorites,word];try{localStorage.setItem('almulhim-favs',JSON.stringify(favorites))}catch{}renderDictionary()}
-  function setup(){renderPopular();for(const id of ['babSelect','sarfBab'])document.getElementById(id).innerHTML=babs.map(b=>`<option value="${b.id}">${b.name}</option>`).join('');document.getElementById('homeGardan').innerHTML='';renderGardan('homeGardan','nasara','madi');renderGardan('fullGardan','nasara','madi');document.getElementById('babInfo').innerHTML=babs.map(b=>`<div class="rule-card"><h4>${b.name}</h4><p>অর্থ: ${b.meaning}</p><p>${b.sign}</p></div>`).join('');document.getElementById('sarfRules').innerHTML=rules.map(r=>`<div class="rule-card"><h4>${r[0]}</h4><p>${r[1]}</p></div>`).join('');document.getElementById('nahwChips').innerHTML='<button class="chip active" data-nahw="all">সব আমেল</button>'+nahwGroups.map(g=>`<button class="chip" data-nahw="${g.id}">${g.short}</button>`).join('');document.getElementById('arabicKeyboard').innerHTML=[...keyboardLetters].map(ch=>`<button class="key" data-key="${ch}">${ch}</button>`).join('');renderDictionary();renderNahw()}
-  document.addEventListener('click',e=>{const nav=e.target.closest('[data-nav]');if(nav){navTo(nav.dataset.nav);return}const word=e.target.closest('[data-word]');if(word){navTo('dict');document.getElementById('dictSearch').value=word.dataset.word;renderDictionary();return}const fav=e.target.closest('[data-fav]');if(fav){toggleFav(fav.dataset.fav);return}const cat=e.target.closest('[data-cat]');if(cat){dictCategory=cat.dataset.cat;document.querySelectorAll('#dictChips .chip').forEach(x=>x.classList.toggle('active',x===cat));renderDictionary();return}const nchip=e.target.closest('[data-nahw]');if(nchip){nahwCategory=nchip.dataset.nahw;document.querySelectorAll('#nahwChips .chip').forEach(x=>x.classList.toggle('active',x===nchip));renderNahw();return}const key=e.target.closest('[data-key]');if(key){const input=document.getElementById('globalSearch');input.value+=key.dataset.key;input.focus();searchAll()}});
-  document.getElementById('keyboardToggle').addEventListener('click',()=>document.getElementById('arabicKeyboard').classList.toggle('open'));
-  document.getElementById('globalSearch').addEventListener('input',searchAll);document.getElementById('searchGo').addEventListener('click',searchAll);document.getElementById('dictSearch').addEventListener('input',renderDictionary);document.getElementById('nahwSearch').addEventListener('input',renderNahw);
-  document.getElementById('babSelect').addEventListener('change',e=>renderGardan('homeGardan',e.target.value,document.getElementById('tenseSelect').value));document.getElementById('tenseSelect').addEventListener('change',e=>renderGardan('homeGardan',document.getElementById('babSelect').value,e.target.value));document.getElementById('sarfBab').addEventListener('change',e=>renderGardan('fullGardan',e.target.value,document.getElementById('sarfTense').value));document.getElementById('sarfTense').addEventListener('change',e=>renderGardan('fullGardan',document.getElementById('sarfBab').value,e.target.value));
-  document.getElementById('installBtn').addEventListener('click',async()=>{if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null}else alert('ব্রাউজারের মেনু থেকে “Add to Home Screen” বা “হোম স্ক্রিনে যোগ করুন” নির্বাচন করুন।')});window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;document.getElementById('installBtn').classList.remove('hidden')});window.addEventListener('appinstalled',()=>{document.getElementById('installBtn').classList.add('hidden')});
-  // Inline web manifest keeps this app file self-contained; offline service workers require a separate same-origin file on most browsers.
-  const manifest={name:'আল মুলহীম — সরফ, নাহু ও অভিধান সহায়ক',short_name:'আল মুলহীম',lang:'bn',start_url:'.',display:'standalone',background_color:'#091b15',theme_color:'#0b241c',icons:[{src:'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"%3E%3Crect width="96" height="96" rx="24" fill="%230b241c"/%3E%3Ctext x="48" y="62" text-anchor="middle" font-size="40" fill="%23d8b568"%3Eم%3C/text%3E%3C/svg%3E',sizes:'any',type:'image/svg+xml',purpose:'any maskable'}]};document.getElementById('appManifest').href='data:application/manifest+json,'+encodeURIComponent(JSON.stringify(manifest));
-  setup();
+    const STORAGE_KEY = 'todo-list-items';
+    let tasks = loadTasks();
+    let filter = 'all';
+
+    const form = document.querySelector('#form');
+    const input = document.querySelector('#input');
+    const list = document.querySelector('#list');
+
+    function loadTasks() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      catch { return []; }
+    }
+
+    function saveTasks() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    }
+
+    function escapeHTML(value) {
+      const div = document.createElement('div');
+      div.textContent = value;
+      return div.innerHTML;
+    }
+
+    function render() {
+      const visible = tasks.filter(task =>
+        filter === 'all' || (filter === 'active' && !task.done) || (filter === 'done' && task.done)
+      );
+
+      if (!visible.length) {
+        list.innerHTML = '<div class="empty">কোনো কাজ নেই</div>';
+        return;
+      }
+
+      list.innerHTML = visible.map(task => `
+        <div class="task ${task.done ? 'done' : ''}" data-id="${task.id}">
+          <input class="check" type="checkbox" ${task.done ? 'checked' : ''} aria-label="কাজের অবস্থা">
+          <span class="text">${escapeHTML(task.text)}</span>
+          <button class="delete" type="button" aria-label="কাজ মুছুন">×</button>
+        </div>
+      `).join('');
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      tasks.unshift({ id: Date.now().toString(), text, done: false });
+      input.value = '';
+      saveTasks();
+      render();
+      input.focus();
+    });
+
+    list.addEventListener('change', event => {
+      if (!event.target.classList.contains('check')) return;
+      const taskElement = event.target.closest('.task');
+      const task = tasks.find(item => item.id === taskElement.dataset.id);
+      if (task) {
+        task.done = event.target.checked;
+        saveTasks();
+        render();
+      }
+    });
+
+    list.addEventListener('click', event => {
+      const button = event.target.closest('.delete');
+      if (!button) return;
+      const taskElement = button.closest('.task');
+      tasks = tasks.filter(item => item.id !== taskElement.dataset.id);
+      saveTasks();
+      render();
+    });
+
+    document.querySelectorAll('.filter').forEach(button => {
+      button.addEventListener('click', () => {
+        filter = button.dataset.filter;
+        document.querySelectorAll('.filter').forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+        render();
+      });
+    });
+
+    document.querySelector('#clearDone').addEventListener('click', () => {
+      tasks = tasks.filter(task => !task.done);
+      saveTasks();
+      render();
+    });
+
+    render();
   </script>
 </body>
 </html>
